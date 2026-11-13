@@ -14,6 +14,12 @@ public class Camera : MonoBehaviour
     [SerializeField] private float cameraSize;
     private int nrOfBlocks; // Might replace with info from other scirpt later on
 
+
+    private void Start()
+    {
+        camera.Lens.OrthographicSize = cameraStartSize;
+    }
+
     public void UpdateCameraSize()
     {
        camera.Lens.OrthographicSize = cameraStartSize + cameraSizePerBlock * nrOfBlocks;
