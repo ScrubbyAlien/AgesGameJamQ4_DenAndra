@@ -69,7 +69,7 @@ Camera:
   near clip plane: 0.01
   far clip plane: 5000
   field of view: 20
-  orthographic: 0
+  orthographic: 1
   orthographic size: 30
   m_Depth: 0
   m_CullingMask:
