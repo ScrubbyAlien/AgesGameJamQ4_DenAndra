@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CubeConstruction : MonoBehaviour
+{
+    public event Action<int> OnAddCube;
+
+    [SerializeField]
+    private float cubeSideLength = 1;
+    private Dictionary<Vector2Int, Cube> cubes;
+    public int count => cubes.Count;
+
+    public bool noOriginCube => !cubes.ContainsKey(Vector2Int.zero) || !cubes[Vector2Int.zero];
+
+    private void Start()
+    {
+        cubes = new();
+        Cube coreCube = transform.GetChild(0).GetComponent<Cube>();
+        if (coreCube)
+        {
+            cubes.Add(Vector2Int.zero, coreCube);
+            OnAddCube?.Invoke(count);
+            coreCube.controllingConstruction = this;
+        }
+    }
+
+    public bool AddCube(Cube cubeToAdd, Cube cubeToAddTo, Vector2Int direction)
+    {
+        if (!GetIndexFromCube(cubeToAddTo, out Vector2Int index)) return false; // cube to add to doesn't exist
+        Vector2Int newIndex = index + direction;
+        if (cubes.ContainsKey(newIndex)) return false; // place to add to is already occupied
+
+        cubes.Add(newIndex, cubeToAdd); // add cube
+        OnAddCube?.Invoke(count);
+        cubeToAdd.transform.parent = transform;
+        cubeToAdd.transform.localPosition = IndexToLocalPosition(newIndex);
+        cubeToAdd.controllingConstruction = this;
+
+        return true;
+    }
+
+    private bool GetIndexFromCube(Cube cube, out Vector2Int index)
+    {
+        index = Vector2Int.zero;
+        foreach (KeyValuePair<Vector2Int, Cube> pair in cubes)
+        {
+            if (pair.Value == cube)
+            {
+                index = pair.Key;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private Vector3 IndexToLocalPosition(Vector2Int index)
+    {
+        return (Vector2)index * cubeSideLength;
+    }
+}
