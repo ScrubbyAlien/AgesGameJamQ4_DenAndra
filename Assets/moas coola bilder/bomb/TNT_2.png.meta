@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9a310a90fc077db4a96e694bd506f281
+guid: 72f87d5a3700a844fab21711a78d7539
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3906406837034195809
-    second: Tile5_vent_0
+      213: -2507412772171888060
+    second: TNT_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tile5_vent_0
+      name: TNT_2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 200
-        height: 200
+        x: 95
+        y: 195
+        width: 278
+        height: 298
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f946b62cda7a9c9c0800000000000000
-      internalID: -3906406837034195809
+      spriteID: 44aca695e51e33dd0800000000000000
+      internalID: -2507412772171888060
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tile5_vent_0: -3906406837034195809
+      TNT_2_0: -2507412772171888060
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
