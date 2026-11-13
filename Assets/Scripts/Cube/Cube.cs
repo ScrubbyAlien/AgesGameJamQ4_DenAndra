@@ -1,49 +1,84 @@
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public abstract class Cube : MonoBehaviour
 {
-    public abstract BlockState state {  get; set; }
-    public abstract int hp { get; set;}
-    public abstract int collsionDmg{ get; set; }
+    public BlockState state;
+    public int hp;
+    public int collsionDmg;
+    public bool isControlledByPlayer;
 
-    public virtual void OnCollisionEnter2D(Collision2D collider)
+    public void OnCollisionEnter2D(Collision2D collider)
     {
+        Debug.Log(state,this);
         if(state == BlockState.Inactive)
         {
             Connect(collider);
         }
+
+        if(state == BlockState.Controlled)
+        {
+            Cube otherCube = collider.gameObject.GetComponent<Cube>();
+            if(otherCube != null)
+            {
+                otherCube.TakeDmg(collsionDmg);
+            }
+        }
+    }
+
+    public virtual void OnDie()
+    {
+        if (isControlledByPlayer)
+        {
+            //deatched other and die
+
+            Destroy(gameObject);
+        }
+        else
+        {
+            //deatch and become inactive
+            Debug.Log("Cube Died");
+            state = BlockState.Inactive;
+
+        }
+            
     }
     public virtual void TakeDmg(int dmg)
     {
-        if(state == BlockState.Inactive)
+        
+        if (state == BlockState.Inactive)
         {
             return;
         }
 
-        hp -= dmg;
+        Debug.Log(this + "took dmg" + dmg);
+
+        hp = hp - dmg;
+        
         if(hp <= 0)
         {
             hp = 0;
-            state = BlockState.Inactive;
-        }
-        
-    }
-    public virtual void OnTimer()
-    {
-        if(state == BlockState.Inactive)
-        {
-            return;
-        }
-    }
 
+            OnDie();
+        }
+    }
     //Handle Connection
     public virtual void Connect(Collision2D collider)   
     {
-        if(state != BlockState.Inactive)
+        collider.gameObject.TryGetComponent<Cube>(out Cube otherCube);
+        if(otherCube == null)
         {
             return;
         }
+
+        if (otherCube.isControlledByPlayer)
+        {
+            //connect cube to player
+            state = BlockState.Controlled;
+        }
+        
+        
     } 
 }
 
