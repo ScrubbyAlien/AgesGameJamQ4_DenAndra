@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c5a39996afca7b04cb9ef4f2b719aba6
+guid: e82cae69a8bc6f34d9fdc044d58fce75
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8363144008919072003
-    second: Tile3_0
+      213: 3485756324093781318
+    second: TNT_fuse3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tile3_0
+      name: TNT_fuse3_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 200
-        height: 200
+        x: 236
+        y: 383
+        width: 106
+        height: 92
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: df241fe65d420fb80800000000000000
-      internalID: -8363144008919072003
+      spriteID: 6456e2f88e4ef5030800000000000000
+      internalID: 3485756324093781318
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tile3_0: -8363144008919072003
+      TNT_fuse3_0: 3485756324093781318
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
