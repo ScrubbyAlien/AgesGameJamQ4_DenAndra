@@ -1,5 +1,265 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7012866782671134718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound/General/BlockDamaged
+  m_EditorClassIdentifier: 
+  Path: event:/Sound/General/BlockDamaged
+  Guid:
+    Data1: -1404154841
+    Data2: 1336522139
+    Data3: 2084767916
+    Data4: 2006090682
+  Banks:
+  - {fileID: 12121077213203430}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6686926606567672710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound/General/BlockDestroyed
+  m_EditorClassIdentifier: 
+  Path: event:/Sound/General/BlockDestroyed
+  Guid:
+    Data1: -1927481968
+    Data2: 1220454066
+    Data3: 262686870
+    Data4: 1939789883
+  Banks:
+  - {fileID: 12121077213203430}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5176176078400385418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound/General/Death
+  m_EditorClassIdentifier: 
+  Path: event:/Sound/General/Death
+  Guid:
+    Data1: -2074192405
+    Data2: 1111999087
+    Data3: 532563100
+    Data4: -1219423181
+  Banks:
+  - {fileID: 12121077213203430}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-4895589140441532034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound/General/BlockAdd
+  m_EditorClassIdentifier: 
+  Path: event:/Sound/General/BlockAdd
+  Guid:
+    Data1: -1982272868
+    Data2: 1255734128
+    Data3: 957596557
+    Data4: -2110920314
+  Banks:
+  - {fileID: 12121077213203430}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-4234653242750444762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Track_1/Reverb
+  m_EditorClassIdentifier: 
+  Name: Reverb
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1185766290
+    data2: 2141938793
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-4096215985466352453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound/Movement/Moving
+  m_EditorClassIdentifier: 
+  Path: event:/Sound/Movement/Moving
+  Guid:
+    Data1: 584721228
+    Data2: 1200993237
+    Data3: 1724686756
+    Data4: -568789667
+  Banks:
+  - {fileID: 12121077213203430}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3009973755998288679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound/Weapons/Laser
+  m_EditorClassIdentifier: 
+  Path: event:/Sound/Weapons/Laser
+  Guid:
+    Data1: 1474105737
+    Data2: 1277746299
+    Data3: -460637273
+    Data4: -1696545645
+  Banks:
+  - {fileID: 12121077213203430}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2588259060444266457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Fmod/TheJam/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639302123955338906
+  FileSizes:
+  - Name: Desktop
+    Value: 1830
+  Exists: 1
+--- !u!114 &-1563348649638375442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound/Weapons/Rocket
+  m_EditorClassIdentifier: 
+  Path: event:/Sound/Weapons/Rocket
+  Guid:
+    Data1: -1326405908
+    Data2: 1237855362
+    Data3: 1980743862
+    Data4: -272106984
+  Banks:
+  - {fileID: 12121077213203430}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-599295838878382761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Track_2
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Track_2
+  Guid:
+    Data1: -943998318
+    Data2: 1156275185
+    Data3: 1223023773
+    Data4: -906349212
+  Banks:
+  - {fileID: 12121077213203430}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 163709
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,11 +272,360 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
-  EditorBanks: []
-  EditorEvents: []
+  EditorBanks:
+  - {fileID: -2588259060444266457}
+  - {fileID: 12121077213203430}
+  EditorEvents:
+  - {fileID: 962958898348713371}
+  - {fileID: -599295838878382761}
+  - {fileID: 8801772224654415697}
+  - {fileID: -7012866782671134718}
+  - {fileID: 7847591889875631144}
+  - {fileID: 5682705138939312137}
+  - {fileID: 41109941318107842}
+  - {fileID: 4037095944493869235}
+  - {fileID: 6948694292028911758}
+  - {fileID: -3009973755998288679}
+  - {fileID: -6686926606567672710}
+  - {fileID: -4895589140441532034}
+  - {fileID: 3127366343288866896}
+  - {fileID: 4987961296255601151}
+  - {fileID: -5176176078400385418}
+  - {fileID: -1563348649638375442}
+  - {fileID: 6774718211122008629}
+  - {fileID: -4096215985466352453}
   EditorParameters: []
-  MasterBanks: []
-  StringsBanks: []
+  MasterBanks:
+  - {fileID: 12121077213203430}
+  StringsBanks:
+  - {fileID: -2588259060444266457}
   cacheVersion: 131861
-  cacheTime: 0
-  SerializableEventsDict: []
+  cacheTime: 639302123955338906
+  SerializableEventsDict:
+  - key: event:/Music/Track_1
+    index: 0
+  - key: event:/Music/Track_2
+    index: 1
+  - key: event:/Sound/Weapons/Pistol
+    index: 2
+  - key: event:/Sound/General/BlockDamaged
+    index: 3
+  - key: event:/Sound/Defensive/Deflect
+    index: 4
+  - key: event:/Sound/Weapons/Shotgun
+    index: 5
+  - key: event:/Sound/Defensive/Shield
+    index: 6
+  - key: event:/Sound/Defensive/Spike
+    index: 7
+  - key: event:/Sound/General/BlockRemoved
+    index: 8
+  - key: event:/Sound/Weapons/Laser
+    index: 9
+  - key: event:/Sound/General/BlockDestroyed
+    index: 10
+  - key: event:/Sound/General/BlockAdd
+    index: 11
+  - key: event:/Sound/Utility/Sugpropp
+    index: 12
+  - key: event:/Sound/Weapons/Bomb
+    index: 13
+  - key: event:/Sound/General/Death
+    index: 14
+  - key: event:/Sound/Weapons/Rocket
+    index: 15
+  - key: event:/Sound/Movement/Thruster
+    index: 16
+  - key: event:/Sound/Movement/Moving
+    index: 17
+--- !u!114 &12121077213203430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Fmod/TheJam/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639302123955318368
+  FileSizes:
+  - Name: Desktop
+    Value: 4098080
+  Exists: 1
+--- !u!114 &41109941318107842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound/Defensive/Shield
+  m_EditorClassIdentifier: 
+  Path: event:/Sound/Defensive/Shield
+  Guid:
+    Data1: 2108334675
+    Data2: 1110891845
+    Data3: -1269049929
+    Data4: -341399620
+  Banks:
+  - {fileID: 12121077213203430}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &962958898348713371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Track_1
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Track_1
+  Guid:
+    Data1: 1552897794
+    Data2: 1188076130
+    Data3: 563385525
+    Data4: -1181571359
+  Banks:
+  - {fileID: 12121077213203430}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -4234653242750444762}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 118230
+--- !u!114 &3127366343288866896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound/Utility/Sugpropp
+  m_EditorClassIdentifier: 
+  Path: event:/Sound/Utility/Sugpropp
+  Guid:
+    Data1: 482080725
+    Data2: 1161715125
+    Data3: -656809072
+    Data4: -341843346
+  Banks:
+  - {fileID: 12121077213203430}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4037095944493869235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound/Defensive/Spike
+  m_EditorClassIdentifier: 
+  Path: event:/Sound/Defensive/Spike
+  Guid:
+    Data1: -2061255341
+    Data2: 1082459391
+    Data3: -1614546761
+    Data4: -1145670547
+  Banks:
+  - {fileID: 12121077213203430}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4987961296255601151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound/Weapons/Bomb
+  m_EditorClassIdentifier: 
+  Path: event:/Sound/Weapons/Bomb
+  Guid:
+    Data1: 188770535
+    Data2: 1157767557
+    Data3: -1275117434
+    Data4: -2133704931
+  Banks:
+  - {fileID: 12121077213203430}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5682705138939312137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound/Weapons/Shotgun
+  m_EditorClassIdentifier: 
+  Path: event:/Sound/Weapons/Shotgun
+  Guid:
+    Data1: -1424149437
+    Data2: 1083932158
+    Data3: 944489094
+    Data4: -1976930625
+  Banks:
+  - {fileID: 12121077213203430}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6774718211122008629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound/Movement/Thruster
+  m_EditorClassIdentifier: 
+  Path: event:/Sound/Movement/Thruster
+  Guid:
+    Data1: 1569817581
+    Data2: 1266847639
+    Data3: 1458082218
+    Data4: -1540527571
+  Banks:
+  - {fileID: 12121077213203430}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6948694292028911758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound/General/BlockRemoved
+  m_EditorClassIdentifier: 
+  Path: event:/Sound/General/BlockRemoved
+  Guid:
+    Data1: 405459817
+    Data2: 1196186020
+    Data3: -1648852557
+    Data4: -1870952875
+  Banks:
+  - {fileID: 12121077213203430}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &7847591889875631144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound/Defensive/Deflect
+  m_EditorClassIdentifier: 
+  Path: event:/Sound/Defensive/Deflect
+  Guid:
+    Data1: 1079329328
+    Data2: 1136981868
+    Data3: 552274099
+    Data4: 922402562
+  Banks:
+  - {fileID: 12121077213203430}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8801772224654415697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound/Weapons/Pistol
+  m_EditorClassIdentifier: 
+  Path: event:/Sound/Weapons/Pistol
+  Guid:
+    Data1: 693095199
+    Data2: 1085042003
+    Data3: 956250279
+    Data4: 351331816
+  Banks:
+  - {fileID: 12121077213203430}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0

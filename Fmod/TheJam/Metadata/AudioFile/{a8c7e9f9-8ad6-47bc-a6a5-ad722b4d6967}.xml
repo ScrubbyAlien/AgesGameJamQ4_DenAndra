@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{a8c7e9f9-8ad6-47bc-a6a5-ad722b4d6967}">
+		<property name="assetPath">
+			<value>MusicAss/Scattle - It's Safe Now.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>163.70938775510203</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{6b0e1e5f-ccd0-4bed-bb48-fc58f35c4a72}</destination>
+		</relationship>
+	</object>
+</objects>
