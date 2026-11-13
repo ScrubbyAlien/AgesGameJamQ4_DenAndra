@@ -9,18 +9,21 @@ public abstract class Cube : MonoBehaviour
     public int collsionDmg;
     public bool isControlledByPlayer;
 
+    [HideInInspector]
+    public CubeConstruction controllingConstruction;
+
     public void OnCollisionEnter2D(Collision2D collider)
     {
-        Debug.Log(state,this);
-        if(state == BlockState.Inactive)
+        Debug.Log(state, this);
+        if (state == BlockState.Inactive)
         {
             Connect(collider);
         }
 
-        if(state == BlockState.Controlled)
+        if (state == BlockState.Controlled)
         {
             Cube otherCube = collider.gameObject.GetComponent<Cube>();
-            if(otherCube != null)
+            if (otherCube != null)
             {
                 otherCube.TakeDmg(collsionDmg);
             }
@@ -40,13 +43,10 @@ public abstract class Cube : MonoBehaviour
             //deatch and become inactive
             Debug.Log("Cube Died");
             state = BlockState.Inactive;
-
         }
-            
     }
     public virtual void TakeDmg(int dmg)
     {
-        
         if (state == BlockState.Inactive)
         {
             return;
@@ -55,8 +55,8 @@ public abstract class Cube : MonoBehaviour
         Debug.Log(this + "took dmg" + dmg);
 
         hp = hp - dmg;
-        
-        if(hp <= 0)
+
+        if (hp <= 0)
         {
             hp = 0;
 
@@ -64,22 +64,24 @@ public abstract class Cube : MonoBehaviour
         }
     }
     //Handle Connection
-    public virtual void Connect(Collision2D collider)   
+    public virtual void Connect(Collision2D collision)
     {
-        collider.gameObject.TryGetComponent<Cube>(out Cube otherCube);
-        if(otherCube == null)
-        {
-            return;
-        }
+        if (!collision.collider.TryGetComponent(out Cube otherCube)) return;
+        Debug.Log(otherCube.name);
 
         if (otherCube.isControlledByPlayer)
         {
             //connect cube to player
             state = BlockState.Controlled;
+            otherCube.controllingConstruction.AddCube(this, otherCube, Vector2Int.right);
         }
-        
-        
-    } 
+    }
+    //
+    // private Vector2Int GetDirection(Vector3 attachToPosition, Vector3 attacheePosition)
+    // {
+    //     Vector3 direction = (attacheePosition - attachToPosition).normalized;
+    //
+    // }
 }
 
 public enum BlockState
