@@ -532,6 +532,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7203667002021417792, guid: 888ae0a2c89dc4f43ad51ba311762bb3, type: 3}
+      propertyPath: pickUpRadius
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 8364413636119001948, guid: 888ae0a2c89dc4f43ad51ba311762bb3, type: 3}
       propertyPath: m_Name
       value: BoomCube
