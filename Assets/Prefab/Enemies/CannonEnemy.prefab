@@ -32,8 +32,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 3785318991426727094}
   - {fileID: 4079572861792506216}
+  - {fileID: 3785318991426727094}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &7462647816181518473
@@ -146,10 +146,6 @@ PrefabInstance:
     - target: {fileID: 3633515439075811050, guid: 42a10c2826b11e9418c1b6e695bf3d4f, type: 3}
       propertyPath: m_Name
       value: EnemyCore
-      objectReference: {fileID: 0}
-    - target: {fileID: 5430609738964252031, guid: 42a10c2826b11e9418c1b6e695bf3d4f, type: 3}
-      propertyPath: state
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
