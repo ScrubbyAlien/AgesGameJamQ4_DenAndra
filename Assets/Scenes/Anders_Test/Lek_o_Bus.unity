@@ -495,7 +495,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26244fc9c0dad7647ab593ebc93b3f67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oneShotRef: []
+  oneShotRef:
+  - Guid:
+      Data1: 693095199
+      Data2: 1085042003
+      Data3: 956250279
+      Data4: 351331816
+    Path: event:/Sound/Weapons/Pistol
   isCoreBlock: 1
   thrustEnabled: 0
   initiateContEventsOnStart: 1
@@ -503,6 +509,8 @@ MonoBehaviour:
   play: 0
   pause: 0
   stop: 0
+  oneshotIndex: 0
+  playOne: 0
 --- !u!212 &1279063544
 SpriteRenderer:
   m_ObjectHideFlags: 0
