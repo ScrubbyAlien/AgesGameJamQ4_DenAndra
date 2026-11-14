@@ -29,7 +29,10 @@ public class BombCube : Cube
 
     public override void TakeDmg(int dmg, DmgType type)
     {
-        BlowUp();
+        if (state == BlockState.Controlled)
+        {
+            BlowUp();
+        }
     }
 
     private void BlowUp()
