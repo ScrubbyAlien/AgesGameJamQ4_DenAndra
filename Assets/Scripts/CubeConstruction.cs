@@ -78,15 +78,16 @@ public class CubeConstruction : MonoBehaviour
 
     public void RemoveCube(Cube cubeToRemove)
     {
-        if (GetIndexFromCube(cubeToRemove, out Vector2Int removeIndex))
+        if (!GetIndexFromCube(cubeToRemove, out Vector2Int removeIndex)) return;
+
+        if (removeIndex == Vector2Int.zero)
         {
-            if (removeIndex == Vector2Int.zero)
-            {
-                Disintigrate();
-                return;
-            }
-            cubes.Remove(removeIndex);
+            Disintigrate();
+            return;
         }
+
+        cubes.Remove(removeIndex);
+        SetInactive(cubeToRemove);
 
         List<List<Cube>> clusters = GetDistinctClusters();
         List<Cube> coreCluster = clusters[0];
@@ -97,15 +98,20 @@ public class CubeConstruction : MonoBehaviour
         }
     }
 
+    private void SetInactive(Cube cube)
+    {
+        cube.transform.parent = null;
+        cube.controllingConstruction = null;
+        cube.positionInConstruction = Vector2Int.zero;
+        cube.isControlledByPlayer = false;
+        cube.state = BlockState.Inactive;
+    }
+
     private void Disintigrate()
     {
         foreach (Cube cube in cubes.Values)
         {
-            cube.transform.parent = null;
-            cube.controllingConstruction = null;
-            cube.positionInConstruction = Vector2Int.zero;
-            cube.isControlledByPlayer = false;
-            cube.state = BlockState.Inactive;
+            SetInactive(cube);
         }
         cubes.Clear();
         Destroy(gameObject);
