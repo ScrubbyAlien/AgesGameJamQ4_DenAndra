@@ -30,6 +30,10 @@ public class SoundController : MonoBehaviour
     public bool play;
     public bool pause;
     public bool stop;
+
+    [Header("OneshotDebug")] 
+    public int oneshotIndex;
+    public bool playOne;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -64,6 +68,12 @@ public class SoundController : MonoBehaviour
                 StopEvent();
                 stop = false;
             }
+
+            if (playOne)
+            {
+                PlayLocalOneshot(oneshotIndex);
+                playOne = false;
+            }
         }
 
         if (isCoreBlock)
@@ -79,7 +89,7 @@ public class SoundController : MonoBehaviour
     public void PlayOneshot(string path)
     {
         EventReference evRef;
-        evRef = EventReference.Find(path);
+        evRef = RuntimeManager.PathToEventReference(path);
         RuntimeManager.PlayOneShotAttached(evRef, gameObject);
     }
     
