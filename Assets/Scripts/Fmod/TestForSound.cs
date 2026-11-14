@@ -8,11 +8,11 @@ public class TestForSound : MonoBehaviour
     private SoundController sCont_;
     
     [Header("Weapon Index")]
-    [Range(0, 5)]
+    [Range(0, 4)]
     public int wIndex;
     public bool wPLay;
     [Header("Utility Index")]
-    [Range(0, 1)]
+    [Range(0, 0)]
     public int uIndex;
     public bool uPLay;
     [Header("GeneralIndex")]
@@ -43,6 +43,7 @@ public class TestForSound : MonoBehaviour
         "event:/Sound/General/BlockDamaged",
         "event:/Sound/General/BlockDestroyed",
         "event:/Sound/General/Death",
+        "event:/Sound/General/Spin",
     };
 
     void Start()

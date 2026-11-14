@@ -3,18 +3,23 @@ using FMOD.Studio;
 using FMODUnity;
 using UnityEditor.Rendering;
 using UnityEngine;
-
+//Funktionerna av intresse här är PlayOneshot, vilket har en parameter "path" som bestämmer
+// vilket fmod-event som kommer spelas. Dessa paths går att läsa från string-listorna
+// weaponPath, utilityPath och generalPath. Ljuden kommer spelas från de koordinater på det objekt
+//som detta script är satt på. 
+//Externa script som ska kontrollera detta bör enbart använda PlayOneshot() för ljud som ska triggas
+// en gång. Det enda kontinuerliga ljuden vi har är när kuberna är i rörelse och/eller "thrustar".
+//Om detta script sätts på en core-kub,så ska boolen "isCoreBlock" vara sann.
+//Boolen "thrustEnabled" ska vara sann då ett thruster-block finns anslutet till core, och det används.
+//"initiateContEventsOnStart" boolen, skapar en instans för movement-ljud, som kallar på InitEvent().
+//Detta måste göras innan metoderna Play-, Pause-, Stop-, Set-Event metoderna kan användas.
+//Obs! StopEvent() frigör eventinstansen från minnet, och kallas bara på när Core-block tas bort/eller kallar på Destroy().
+//Använd PauseEvent() när movement ljud ska sluta spelas.
 public class SoundController : MonoBehaviour
 {
     private GameObject thisObject;
     private EventInstance eventInstance;
     private EventReference eventReference;
-    
-    [Serializable]public struct Param
-    {
-        public string Name;
-        public float Value;
-    }
 
     [Header("Local Sound Events")] 
     //För Oneshot (local)
@@ -22,7 +27,7 @@ public class SoundController : MonoBehaviour
 
     [Header("MovementSettings")] 
     [Tooltip("Toggla denna om detta script sätts på en 'Core'")]public bool isCoreBlock;
-    [Tooltip("Togglas externt, om core har thruster")]public bool thrustEnabled;
+    [Tooltip("Togglas externt, om core har thruster och körs")]public bool thrustEnabled;
     [Tooltip("Toggla denna om Event instanserna ska skapa vid Start")]public bool initiateContEventsOnStart;
     
     [Header("MovementDebug")]
@@ -34,6 +39,32 @@ public class SoundController : MonoBehaviour
     [Header("OneshotDebug")] 
     public int oneshotIndex;
     public bool playOne;
+    
+    //Kallas med PlayOneshot()
+   [HideInInspector] public string[] weaponPath =
+    {
+        "event:/Sound/Weapons/Pistol",
+        "event:/Sound/Weapons/Shotgun",
+        "event:/Sound/Weapons/Laser",
+        "event:/Sound/Weapons/Rocket",
+        "event:/Sound/Weapons/Bomb",
+    };
+    //Kallas med PlayOneshot()
+    [HideInInspector] public string[] utilityPath =
+    {
+        "event:/Sound/Utility/Sugpropp"
+    };
+
+    //Kallas med PlayOneshot()
+    [HideInInspector] public string[] generalPath =
+    {
+        "event:/Sound/General/BlockAdd",
+        "event:/Sound/General/BlockRemoved",
+        "event:/Sound/General/BlockDamaged",
+        "event:/Sound/General/BlockDestroyed",
+        "event:/Sound/General/Death",
+        "event:/Sound/General/Spin",
+    };
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -81,7 +112,7 @@ public class SoundController : MonoBehaviour
             Rigidbody2D rig2D;
             rig2D = GetComponent<Rigidbody2D>();
             RuntimeManager.AttachInstanceToGameObject(eventInstance, gameObject, rig2D);
-            checkThrust();
+            CheckThrust();
         }
         
     }
@@ -132,7 +163,7 @@ public class SoundController : MonoBehaviour
         eventInstance = RuntimeManager.CreateInstance(eventReference);
     }
 
-    private void checkThrust()
+    private void CheckThrust()
     {
         eventInstance.getParameterByName("Thrust", out float val);
         if (thrustEnabled && val == 0)
