@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33decdbc6c6970c4785412042c92ab38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   baseHP: 1
   currentHp: 0
   collsionDmg: 1
