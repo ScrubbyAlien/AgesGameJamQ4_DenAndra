@@ -31,7 +31,6 @@ public class Controller : MonoBehaviour
         {
             body.linearVelocity *= dampening;
         }
-        Debug.Log($"{gameObject.name} {body.linearVelocity}");
 
         if (turnThisFrame)
         {

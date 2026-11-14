@@ -11,13 +11,15 @@ public abstract class Cube : MonoBehaviour
     [Min(0f)]
     public float pickUpRadius;
 
-    private Dictionary<Vector2, bool> neighbours;
     private CircleCollider2D circleCollider;
 
-    [SerializeField] private GameObject particles;
+    [SerializeField]
+    private GameObject particles;
 
     [HideInInspector]
     public CubeConstruction controllingConstruction;
+    [HideInInspector]
+    public Vector2Int positionInConstruction;
 
     private void Awake()
     {
@@ -28,7 +30,6 @@ public abstract class Cube : MonoBehaviour
 
     private void Start()
     {
-        neighbours = new();
         currentHp = baseHP;
         particles.SetActive(false);
     }
@@ -70,10 +71,10 @@ public abstract class Cube : MonoBehaviour
 
     public virtual void OnDie()
     {
+        Disconnet();
         if (isControlledByPlayer)
         {
             //deatched other and die
-
             Destroy(gameObject);
         }
         else
@@ -108,6 +109,8 @@ public abstract class Cube : MonoBehaviour
     //Handle Connection
     public virtual void Connect(Collider2D collider)
     {
+        // todo: trigger connect animation
+
         if (!collider.TryGetComponent(out Cube otherCube)) return;
 
         if (otherCube.isControlledByPlayer)
@@ -125,6 +128,11 @@ public abstract class Cube : MonoBehaviour
                 //ConnectNeighbours(index);
             }
         }
+    }
+
+    public virtual void Disconnet()
+    {
+        controllingConstruction?.RemoveCube(this);
     }
 
     private Vector2Int GetDirection(Vector3 attachToPosition, Vector3 attacheePosition, float rotation = 0f)
@@ -163,41 +171,19 @@ public abstract class Cube : MonoBehaviour
         return direction;
     }
 
-    //Handles so the cube knows it neighbours and so on
-
-    /*
-    private void ConnectNeighbours(Vector2Int constructionPos)
-    {
-        if(controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.right, out Cube rightCube))
-        {
-            neighbours.Add(Vector2.right, rightCube);
-            rightCube.neighbours.Add(Vector2Int.left, this);
-        }
-        if (controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.left, out Cube leftCube))
-        {
-            neighbours.Add(Vector2.left, leftCube);
-            leftCube.neighbours.Add(Vector2Int.right, this);
-        }
-        if (controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.up, out Cube upCube))
-        {
-            neighbours.Add(Vector2.up, upCube);
-            upCube.neighbours.Add(Vector2Int.down, this);
-        }
-        if (controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.down, out Cube downCube))
-        {
-            neighbours.Add(Vector2.down, downCube);
-            upCube.neighbours.Add(Vector2Int.down, this);
-        }
-    }
-    */
-
     public virtual void EnterInactiveState()
     {
         state = BlockState.Inactive;
         particles.SetActive(true);
     }
-}
 
+    private bool DirectionIsFree(Vector2Int direction)
+    {
+        if (!controllingConstruction) return true;
+        // return true if there is no neighnbour in that direction
+        return !controllingConstruction.GetCubeFromIndex(positionInConstruction + direction, out Cube _);
+    }
+}
 
 public enum BlockState
 {

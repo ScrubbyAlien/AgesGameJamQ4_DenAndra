@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CubeConstruction : MonoBehaviour
@@ -31,6 +32,8 @@ public class CubeConstruction : MonoBehaviour
                 // transform position better be fucking correct istg
                 Vector2Int place = Vector2Int.RoundToInt((Vector2)childCube.transform.position);
                 cubes.Add(place, childCube);
+                childCube.controllingConstruction = this;
+                childCube.positionInConstruction = place;
             }
         }
     }
@@ -52,6 +55,15 @@ public class CubeConstruction : MonoBehaviour
         cubeToAdd.controllingConstruction = this;
 
         return true;
+    }
+
+    public void RemoveCube(Cube cubeToRemove)
+    {
+        if (GetIndexFromCube(cubeToRemove, out Vector2Int index))
+        {
+            cubes.Remove(index);
+        }
+        Debug.Log(CubesConnectedToCore().Count);
     }
 
     public bool GetIndexFromCube(Cube cube, out Vector2Int index)
@@ -96,5 +108,41 @@ public class CubeConstruction : MonoBehaviour
             }
         }
         return types;
+    }
+
+    public List<Cube> CubesConnectedToCore()
+    {
+        List<Cube> connectedCubes = new() { cubes[Vector2Int.zero] };
+        HashSet<Vector2Int> vistited = new();
+        Queue<Vector2Int> frontier = new();
+        frontier.Enqueue(Vector2Int.zero);
+
+        while (frontier.Count > 0)
+        {
+            Vector2Int next = frontier.Dequeue();
+            vistited.Add(next);
+            Vector2Int[] neighbours = Neighbours(next);
+
+            foreach (Vector2Int neighbour in neighbours)
+            {
+                if (cubes.ContainsKey(neighbour) && !vistited.Contains(neighbour))
+                {
+                    connectedCubes.Add(cubes[neighbour]);
+                    if (!frontier.Contains(neighbour)) frontier.Enqueue(neighbour);
+                }
+            }
+        }
+
+        return connectedCubes;
+    }
+
+    private Vector2Int[] Neighbours(Vector2Int origin)
+    {
+        return new[] {
+            origin + Vector2Int.up,
+            origin + Vector2Int.down,
+            origin + Vector2Int.left,
+            origin + Vector2Int.right,
+        };
     }
 }
