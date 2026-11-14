@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Cube : MonoBehaviour
 {
+    public abstract string prefabName { get; }
+
     public BlockState state;
     public int baseHP;
     [ReadOnly]
@@ -94,7 +96,6 @@ public abstract class Cube : MonoBehaviour
         {
             //deatch and become inactive
             Disconnect();
-            Debug.Log("Cube Died");
             EnterInactiveState();
             currentHp = baseHP;
         }

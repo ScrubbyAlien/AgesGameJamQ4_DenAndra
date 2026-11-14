@@ -162,6 +162,7 @@ MonoBehaviour:
   controllingConstruction: {fileID: 0}
   positionInConstruction: {x: 0, y: 0}
   animator: {fileID: 1990188380866279124}
+  minePlanterCubePrefab: {fileID: 6807755440333595216}
   projectilePrefab: {fileID: 2109188099094810825, guid: a6ce370bd724f1343990d940c3d39d7e, type: 3}
   reloadTime: 4
   shootPostion: {fileID: 7408565034044424077}

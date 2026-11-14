@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class MinePlanterCube : Cube
 {
+    public override string prefabName => "MinePlanter";
 
     [Header("Canon Cube")]
     [SerializeField] private GameObject projectilePrefab;

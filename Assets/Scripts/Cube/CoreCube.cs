@@ -4,6 +4,8 @@ using UnityEngine;
 public class CoreCube : Cube
 {
     public static event Action EnemyDied;
+    public override string prefabName => "";
+
     /// <inheritdoc />
     protected override void OnTriggerEnter2D(Collider2D collider)
     {
