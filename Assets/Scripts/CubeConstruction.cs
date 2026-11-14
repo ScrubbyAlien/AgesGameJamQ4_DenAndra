@@ -71,6 +71,7 @@ public class CubeConstruction : MonoBehaviour
         cubeToAdd.controllingConstruction = this;
         cubeToAdd.isControlledByPlayer = GetComponent<PlayerController>();
         cubeToAdd.state = BlockState.Controlled;
+        OnAddCube?.Invoke(count);
 
         return true;
     }
