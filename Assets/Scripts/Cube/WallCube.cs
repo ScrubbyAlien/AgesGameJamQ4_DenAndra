@@ -6,9 +6,4 @@ public class WallCube : Cube
     {
         base.OnDie();
     }
-
-    public override void TakeDmg(int dmg)
-    {
-        base.TakeDmg(dmg);
-    }
 }

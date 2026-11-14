@@ -18,16 +18,21 @@ public class PlayerController : MonoBehaviour
 
     private Coroutine turning;
 
-    private void Awake() {
+    private void Awake()
+    {
         body = GetComponent<Rigidbody2D>();
     }
 
-    private void Start() {
+    private void Start()
+    {
         thrust = InputSystem.actions.FindAction("Thrust");
         turn = InputSystem.actions.FindAction("Turn");
+        body.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
-    private void Update() {
+    private void Update()
+    {
+        body.centerOfMass = Vector2.zero;
         Vector2 thrustThisFrame = thrust.ReadValue<Vector2>() * thrustStrength;
         bool turnThisFrame = turn.WasPerformedThisFrame() && turning == null;
 
@@ -35,22 +40,27 @@ public class PlayerController : MonoBehaviour
         body.AddForce(thrustThisFrame);
         body.linearVelocity = Vector2.ClampMagnitude(body.linearVelocity, maxSpeed);
 
-        if (turnThisFrame) {
+        if (turnThisFrame)
+        {
             float turnDirection = turn.ReadValue<float>();
             OnTurnInput?.Invoke(turnDirection);
             float rotation = 90 * turnDirection;
-            float endRotation = transform.rotation.eulerAngles.z + rotation;
-            turning = StartCoroutine(Rotate(rotation, endRotation));
+            turning = StartCoroutine(Rotate(rotation));
         }
     }
 
     // BOOOOOOOM
 
-    private IEnumerator Rotate(float rotation, float endRotation) {
+    private IEnumerator Rotate(float rotation)
+    {
+        body.constraints = RigidbodyConstraints2D.None;
         body.angularVelocity = rotation / rotationTime;
         yield return new WaitForSeconds(rotationTime);
         body.angularVelocity = 0;
-        body.SetRotation(endRotation);
+
+        float roundedToNearest90 = Mathf.Round(transform.eulerAngles.z / 90) * 90f;
+        body.SetRotation(roundedToNearest90);
+        body.constraints = RigidbodyConstraints2D.FreezeRotation;
         turning = null;
     }
 }

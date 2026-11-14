@@ -1,20 +1,27 @@
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Cube : MonoBehaviour
 {
     public BlockState state;
-    public int hp;
+    public int baseHP;
+    public int currentHp;
     public int collsionDmg;
     public bool isControlledByPlayer;
+
+    private Dictionary<Vector2, bool> neighbours; 
 
     [HideInInspector]
     public CubeConstruction controllingConstruction;
 
-    public void OnCollisionEnter2D(Collision2D collider)
+    private void Start()
     {
-        Debug.Log(state, this);
+        neighbours = new();
+        currentHp = baseHP;
+    }
+
+    protected virtual void OnCollisionEnter2D(Collision2D collider)
+    {
         if (state == BlockState.Inactive)
         {
             Connect(collider);
@@ -22,11 +29,29 @@ public abstract class Cube : MonoBehaviour
 
         if (state == BlockState.Controlled)
         {
-            Cube otherCube = collider.gameObject.GetComponent<Cube>();
-            if (otherCube != null)
+            if (!collider.collider.TryGetComponent(out Cube otherCube)) return;
+
+            if(otherCube.state == BlockState.Inactive)
             {
-                otherCube.TakeDmg(collsionDmg);
+                return;
             }
+
+            if (isControlledByPlayer)
+            {
+                otherCube.TakeDmg(collsionDmg, DmgType.Player);
+            }
+            else
+            {
+                otherCube.TakeDmg(collsionDmg, DmgType.Enemy);
+            }
+        }
+    }
+
+    protected virtual void OnCollisionStay2D(Collision2D collision)
+    {
+        if (state == BlockState.Inactive)
+        {
+            Connect(collision);
         }
     }
 
@@ -43,22 +68,26 @@ public abstract class Cube : MonoBehaviour
             //deatch and become inactive
             Debug.Log("Cube Died");
             state = BlockState.Inactive;
+            currentHp = baseHP;
         }
     }
-    public virtual void TakeDmg(int dmg)
+    public virtual void TakeDmg(int dmg, DmgType type)
     {
         if (state == BlockState.Inactive)
         {
             return;
         }
+        //no dmg if player is 
+        if (isControlledByPlayer && type == DmgType.Player) return;
 
-        Debug.Log(this + "took dmg" + dmg);
+        //no dmg if non player is vs enemy
+        if (!isControlledByPlayer && type == DmgType.Enemy) return;
 
-        hp = hp - dmg;
+        currentHp = currentHp - dmg;
 
-        if (hp <= 0)
+        if (currentHp <= 0)
         {
-            hp = 0;
+            currentHp = 0;
 
             OnDie();
         }
@@ -67,25 +96,98 @@ public abstract class Cube : MonoBehaviour
     public virtual void Connect(Collision2D collision)
     {
         if (!collision.collider.TryGetComponent(out Cube otherCube)) return;
-        Debug.Log(otherCube.name);
 
         if (otherCube.isControlledByPlayer)
         {
-            //connect cube to player
-            state = BlockState.Controlled;
-            otherCube.controllingConstruction.AddCube(this, otherCube, Vector2Int.right);
+            // attempt to connect cube to player
+            float playerRotation = otherCube.controllingConstruction.transform.eulerAngles.z;
+            Debug.Log(playerRotation);
+            Vector2Int direction = GetDirection(otherCube.transform.position, transform.position, playerRotation);
+            if (otherCube.controllingConstruction.AddCube(this, otherCube, direction))
+            {
+                state = BlockState.Controlled;
+                isControlledByPlayer = true;
+                controllingConstruction.GetIndexFromCube(this, out Vector2Int index);
+                //ConnectNeighbours(index);
+            }
         }
     }
-    //
-    // private Vector2Int GetDirection(Vector3 attachToPosition, Vector3 attacheePosition)
-    // {
-    //     Vector3 direction = (attacheePosition - attachToPosition).normalized;
-    //
-    // }
+
+    private Vector2Int GetDirection(Vector3 attachToPosition, Vector3 attacheePosition, float rotation = 0f)
+    {
+        Vector3 direction = (attacheePosition - attachToPosition).normalized;
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        { // right or left
+            if (direction.x > 0) return CompensateRotation(rotation, Vector2Int.right);
+            else return CompensateRotation(rotation, Vector2Int.left);
+        }
+        else
+        { // up or down
+            if (direction.y > 0) return CompensateRotation(rotation, Vector2Int.up);
+            else return CompensateRotation(rotation, Vector2Int.down);
+        }
+    }
+
+    private Vector2Int CompensateRotation(float rotation, Vector2Int direction)
+    {
+        rotation = Mathf.Round(rotation / 90) * 90; // round to nearest 90 deg
+        rotation %= 360; // ensure rotation is positive
+        while (rotation > 0)
+        {
+            (int x, int y) tuple = (direction.x, direction.y);
+            tuple = tuple switch {
+                (0, 1) => (1, 0),
+                (1, 0) => (0, -1),
+                (0, -1) => (-1, 0),
+                (-1, 0) => (0, 1),
+                _ => (0, 0)
+            };
+            Debug.Assert(tuple != (0, 0));
+            direction = new Vector2Int(tuple.x, tuple.y);
+            rotation -= 90;
+        }
+        return direction;
+    }
+
+    //Handles so the cube knows it neighbours and so on
+    
+    /*
+    private void ConnectNeighbours(Vector2Int constructionPos)
+    {
+        if(controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.right, out Cube rightCube))
+        {
+            neighbours.Add(Vector2.right, rightCube);
+            rightCube.neighbours.Add(Vector2Int.left, this);
+        }
+        if (controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.left, out Cube leftCube))
+        {
+            neighbours.Add(Vector2.left, leftCube);
+            leftCube.neighbours.Add(Vector2Int.right, this);
+        }
+        if (controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.up, out Cube upCube))
+        {
+            neighbours.Add(Vector2.up, upCube);
+            upCube.neighbours.Add(Vector2Int.down, this);
+        }
+        if (controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.down, out Cube downCube))
+        {
+            neighbours.Add(Vector2.down, downCube);
+            upCube.neighbours.Add(Vector2Int.down, this);
+        }
+    }
+    */
 }
+
 
 public enum BlockState
 {
     Inactive,
     Controlled
+}
+
+public enum DmgType
+{
+    Player,
+    Enemy,
+    Neutral
 }

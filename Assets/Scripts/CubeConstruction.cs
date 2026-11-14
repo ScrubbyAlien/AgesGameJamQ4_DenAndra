@@ -23,6 +23,16 @@ public class CubeConstruction : MonoBehaviour
             OnAddCube?.Invoke(count);
             coreCube.controllingConstruction = this;
         }
+
+        for (int i = 1; i < transform.childCount; i++)
+        {
+            if (transform.GetChild(i).TryGetComponent(out Cube childCube))
+            {
+                // transform position better be fucking correct istg
+                Vector2Int place = Vector2Int.RoundToInt((Vector2)childCube.transform.position);
+                cubes.Add(place, childCube);
+            }
+        }
     }
 
     public bool AddCube(Cube cubeToAdd, Cube cubeToAddTo, Vector2Int direction)
@@ -35,12 +45,16 @@ public class CubeConstruction : MonoBehaviour
         OnAddCube?.Invoke(count);
         cubeToAdd.transform.parent = transform;
         cubeToAdd.transform.localPosition = IndexToLocalPosition(newIndex);
+        float rotation = cubeToAdd.transform.localEulerAngles.z;
+        Debug.Log(rotation);
+        rotation = Mathf.Round(rotation / 90f) * 90f; // round to nearest 90
+        cubeToAdd.transform.localEulerAngles = new Vector3(0, 0, rotation);
         cubeToAdd.controllingConstruction = this;
 
         return true;
     }
 
-    private bool GetIndexFromCube(Cube cube, out Vector2Int index)
+    public bool GetIndexFromCube(Cube cube, out Vector2Int index)
     {
         index = Vector2Int.zero;
         foreach (KeyValuePair<Vector2Int, Cube> pair in cubes)
@@ -58,5 +72,11 @@ public class CubeConstruction : MonoBehaviour
     private Vector3 IndexToLocalPosition(Vector2Int index)
     {
         return (Vector2)index * cubeSideLength;
+    }
+
+    public bool GetCubeFromIndex(Vector2Int index, out Cube cube)
+    {
+        if (!cubes.TryGetValue(index, out cube)) return false;
+        return true;
     }
 }
