@@ -22,7 +22,8 @@ public abstract class Cube : MonoBehaviour
     public Vector2Int positionInConstruction;
 
     [Header("Animatior")]
-    [SerializeField] private Animator animator;
+    [SerializeField]
+    private Animator animator;
 
     private void Awake()
     {
@@ -87,7 +88,7 @@ public abstract class Cube : MonoBehaviour
         else
         {
             //deatch and become inactive
-            
+
             Debug.Log("Cube Died");
             EnterInactiveState();
             currentHp = baseHP;
@@ -125,7 +126,6 @@ public abstract class Cube : MonoBehaviour
         {
             // attempt to connect cube to player
             float playerRotation = otherCube.controllingConstruction.transform.eulerAngles.z;
-            Debug.Log(playerRotation);
             Vector2Int direction = GetDirection(otherCube.transform.position, transform.position, playerRotation);
             if (otherCube.controllingConstruction.AddCube(this, otherCube, direction))
             {
@@ -134,7 +134,7 @@ public abstract class Cube : MonoBehaviour
                 controllingConstruction.GetIndexFromCube(this, out Vector2Int index);
                 particles.SetActive(false);
 
-                if(animator != null)
+                if (animator != null)
                 {
                     animator.SetTrigger("Green");
                 }

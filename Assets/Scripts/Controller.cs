@@ -19,6 +19,8 @@ public class Controller : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         body.constraints = RigidbodyConstraints2D.FreezeRotation;
+        body.gravityScale = 0;
+        body.linearDamping = 0;
     }
 
     protected void UpdateRigidbody()
