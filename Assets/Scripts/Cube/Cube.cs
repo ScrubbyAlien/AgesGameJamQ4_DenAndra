@@ -21,6 +21,9 @@ public abstract class Cube : MonoBehaviour
     [HideInInspector]
     public Vector2Int positionInConstruction;
 
+    [Header("Animatior")]
+    [SerializeField] private Animator animator;
+
     private void Awake()
     {
         circleCollider = gameObject.AddComponent<CircleCollider2D>();
@@ -72,6 +75,10 @@ public abstract class Cube : MonoBehaviour
     public virtual void OnDie()
     {
         Disconnet();
+        if (animator != null)
+        {
+            animator.SetTrigger("Red");
+        }
         if (isControlledByPlayer)
         {
             //deatched other and die
@@ -80,6 +87,7 @@ public abstract class Cube : MonoBehaviour
         else
         {
             //deatch and become inactive
+            
             Debug.Log("Cube Died");
             EnterInactiveState();
             currentHp = baseHP;
@@ -125,7 +133,11 @@ public abstract class Cube : MonoBehaviour
                 isControlledByPlayer = true;
                 controllingConstruction.GetIndexFromCube(this, out Vector2Int index);
                 particles.SetActive(false);
-                //ConnectNeighbours(index);
+
+                if(animator != null)
+                {
+                    animator.SetTrigger("Green");
+                }
             }
         }
     }
