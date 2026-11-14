@@ -1,16 +1,25 @@
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public abstract class Cube : MonoBehaviour
 {
     public BlockState state;
-    public int hp;
+    public int baseHP;
+    public int currentHp;
     public int collsionDmg;
     public bool isControlledByPlayer;
 
+    private Dictionary<Vector2, bool> neighbours; 
+
     [HideInInspector]
     public CubeConstruction controllingConstruction;
+
+    private void Start()
+    {
+        neighbours = new();
+        currentHp = baseHP;
+    }
 
     public void OnCollisionEnter2D(Collision2D collider)
     {
@@ -21,10 +30,20 @@ public abstract class Cube : MonoBehaviour
 
         if (state == BlockState.Controlled)
         {
-            Cube otherCube = collider.gameObject.GetComponent<Cube>();
-            if (otherCube != null)
+            if (!collider.collider.TryGetComponent(out Cube otherCube)) return;
+
+            if(otherCube.state == BlockState.Inactive)
             {
-                otherCube.TakeDmg(collsionDmg);
+                return;
+            }
+
+            if (isControlledByPlayer)
+            {
+                otherCube.TakeDmg(collsionDmg, DmgType.Player);
+            }
+            else
+            {
+                otherCube.TakeDmg(collsionDmg, DmgType.Enemy);
             }
         }
     }
@@ -42,22 +61,26 @@ public abstract class Cube : MonoBehaviour
             //deatch and become inactive
             Debug.Log("Cube Died");
             state = BlockState.Inactive;
+            currentHp = baseHP;
         }
     }
-    public virtual void TakeDmg(int dmg)
+    public virtual void TakeDmg(int dmg, DmgType type)
     {
         if (state == BlockState.Inactive)
         {
             return;
         }
+        //no dmg if player is 
+        if (isControlledByPlayer && type == DmgType.Player) return;
 
-        Debug.Log(this + "took dmg" + dmg);
+        //no dmg if non player is vs enemy
+        if (!isControlledByPlayer && type == DmgType.Enemy) return;
 
-        hp = hp - dmg;
+        currentHp = currentHp - dmg;
 
-        if (hp <= 0)
+        if (currentHp <= 0)
         {
-            hp = 0;
+            currentHp = 0;
 
             OnDie();
         }
@@ -77,6 +100,8 @@ public abstract class Cube : MonoBehaviour
             {
                 state = BlockState.Controlled;
                 isControlledByPlayer = true;
+                controllingConstruction.GetIndexFromCube(this, out Vector2Int index);
+                ConnectNeighbours(index);
             }
         }
     }
@@ -116,10 +141,44 @@ public abstract class Cube : MonoBehaviour
         }
         return direction;
     }
+
+    //Handles so the cube knows it neighbours and so on
+    private void ConnectNeighbours(Vector2Int constructionPos)
+    {
+        Debug.Log(constructionPos);
+        if(controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.right, out Cube rightCube))
+        {
+            Debug.Log("I Found Neighbor" + Vector2.right, rightCube);
+            neighbours.Add(Vector2.right, rightCube);
+        }
+        if (controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.left, out Cube leftCube))
+        {
+            Debug.Log("I Found Neighbor" + Vector2.left, leftCube);
+            neighbours.Add(Vector2.left, leftCube);
+        }
+        if (controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.up, out Cube upCube))
+        {
+            Debug.Log("I Found Neighbor" + Vector2.up, upCube);
+            neighbours.Add(Vector2.up, upCube);
+        }
+        if (controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.down, out Cube downCube))
+        {
+            Debug.Log("I Found Neighbor" + Vector2.down, downCube);
+            neighbours.Add(Vector2.down, downCube);
+        }
+    }
 }
+
 
 public enum BlockState
 {
     Inactive,
     Controlled
+}
+
+public enum DmgType
+{
+    Player,
+    Enemy,
+    Neutral
 }
