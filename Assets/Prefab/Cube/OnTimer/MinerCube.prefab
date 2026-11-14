@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1959059528906037185}
   - component: {fileID: 4733601320402098556}
   - component: {fileID: 6807755440333595216}
+  - component: {fileID: 2322329212603892503}
   m_Layer: 0
   m_Name: MinerCube
   m_TagString: Untagged
@@ -129,8 +130,8 @@ BoxCollider2D:
   m_Offset: {x: -0.0039999485, y: -0.0057388544}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.4952381, y: 0.39754096}
-    oldSize: {x: 1.05, y: 1.22}
+    pivot: {x: 0.5, y: 0.4}
+    oldSize: {x: 1, y: 1.25}
     newSize: {x: 1.05, y: 1.22}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -163,6 +164,28 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2109188099094810825, guid: a6ce370bd724f1343990d940c3d39d7e, type: 3}
   reloadTime: 4
   shootPostion: {fileID: 7408565034044424077}
+--- !u!95 &2322329212603892503
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025083836498604454}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f30e02f08cad7004e9c994b3befdf437, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5341877090954833960
 GameObject:
   m_ObjectHideFlags: 0
