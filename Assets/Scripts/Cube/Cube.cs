@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
 public abstract class Cube : MonoBehaviour
 {
     public BlockState state;
     public int baseHP;
+    [ReadOnly]
     public int currentHp;
     public int collsionDmg;
     public bool isControlledByPlayer;
@@ -14,7 +16,7 @@ public abstract class Cube : MonoBehaviour
     private CircleCollider2D circleCollider;
 
     [SerializeField]
-    private GameObject particles;
+    protected GameObject particles;
 
     [HideInInspector]
     public CubeConstruction controllingConstruction;
@@ -75,7 +77,7 @@ public abstract class Cube : MonoBehaviour
 
     public virtual void OnDie()
     {
-        Disconnet();
+        Disconnect();
         if (animator != null)
         {
             animator.SetTrigger("Red");
@@ -142,7 +144,7 @@ public abstract class Cube : MonoBehaviour
         }
     }
 
-    public virtual void Disconnet()
+    public virtual void Disconnect()
     {
         controllingConstruction?.RemoveCube(this);
     }
