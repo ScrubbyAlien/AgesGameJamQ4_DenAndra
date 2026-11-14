@@ -29,11 +29,11 @@ public class CanonCube : Cube
         {
             if (isControlledByPlayer)
             {
-                projectile.SetUpProjectile(-transform.up, DmgType.Player);
+                projectile.SetUpProjectile(-transform.up, DmgType.Player, this);
             }
             else
             {
-                projectile.SetUpProjectile(-transform.up, DmgType.Enemy);
+                projectile.SetUpProjectile(-transform.up, DmgType.Enemy, this);
             }
         }
     }

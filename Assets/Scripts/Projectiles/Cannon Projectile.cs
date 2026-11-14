@@ -3,8 +3,9 @@ using UnityEngine;
 public class CannonProjectile : Projectile
 {
 
-    public override void SetUpProjectile(Vector3 direction, DmgType type)
+    public override void SetUpProjectile(Vector3 direction, DmgType type, Cube shooter)
     {
+        base.SetUpProjectile(direction, type, shooter);
         rb.linearVelocity = (Vector2)direction.normalized * speed;
     }
 
