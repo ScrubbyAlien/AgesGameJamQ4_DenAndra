@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 public class CoreCube : Cube
 {
+    public static event Action EnemyDied;
     /// <inheritdoc />
     protected override void OnTriggerEnter2D(Collider2D collider)
     {
@@ -42,6 +44,10 @@ public class CoreCube : Cube
         if (isControlledByPlayer)
         {
             // todo: lose game
+        }
+        else
+        {
+            EnemyDied?.Invoke();
         }
     }
 }
