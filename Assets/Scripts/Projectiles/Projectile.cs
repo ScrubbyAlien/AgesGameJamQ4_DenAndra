@@ -9,6 +9,11 @@ public class Projectile : MonoBehaviour
     [SerializeField] public float speed = 3f;
     [SerializeField] public Rigidbody2D rb;
     private Cube shooter = null;
+
+    private void Start()
+    {
+        Destroy(gameObject, 20f);
+    }
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         Cube cube = collision.GetComponent<Cube>();
