@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: Lens.OrthographicSize
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8095628847424354339, guid: da53512f4db5aec42b284f5f94cebff8, type: 3}
+      propertyPath: cubeConstruct
+      value: 
+      objectReference: {fileID: 371321842}
     - target: {fileID: 8294355907502548592, guid: da53512f4db5aec42b284f5f94cebff8, type: 3}
       propertyPath: m_Name
       value: PlayerCamera
@@ -410,6 +414,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb3bd47983ac20a439393fd548b4276a, type: 3}
+--- !u!114 &371321842 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 870404463079570408, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
+  m_PrefabInstance: {fileID: 104568662}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1dc4d7654949745ba294e410255974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &534481892
 PrefabInstance:
   m_ObjectHideFlags: 0

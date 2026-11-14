@@ -17,13 +17,12 @@ public class Camera : MonoBehaviour
 
     private void Awake()
     {
-        cubeConstruct = GetComponent<CubeConstruction>();
-
     }
 
     private void OnEnable()
     {
-        if(cubeConstruct != null)
+        Debug.Log("AAAAAAAAAAA");
+        if (cubeConstruct != null)
         {
             cubeConstruct.OnAddCube += UpdateCameraSize;
         }
@@ -44,12 +43,8 @@ public class Camera : MonoBehaviour
 
     public void UpdateCameraSize(int nrOfcubes)
     {
+        Debug.Log("Increase camera sizes");
         nrOfBlocks = nrOfcubes;
-       camera.Lens.OrthographicSize = cameraStartSize + cameraSizePerBlock * nrOfBlocks;
+        camera.Lens.OrthographicSize = cameraStartSize + cameraSizePerBlock * nrOfBlocks;
     }
-
-
-
-
-
 }
