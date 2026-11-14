@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
-  timeUntillActivation: 0.5
+  timeUntillActivation: 1
   explosion: {fileID: 8227213066660741773, guid: 5812620902dd75f498494a384763f689, type: 3}
 --- !u!212 &3558764813302316010
 SpriteRenderer:
@@ -138,7 +138,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: -8743702095670385534, guid: e205c89da72bf474eb08d937ef9beb4d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
