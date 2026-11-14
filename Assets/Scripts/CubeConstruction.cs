@@ -23,6 +23,16 @@ public class CubeConstruction : MonoBehaviour
             OnAddCube?.Invoke(count);
             coreCube.controllingConstruction = this;
         }
+
+        for (int i = 1; i < transform.childCount; i++)
+        {
+            if (transform.GetChild(i).TryGetComponent(out Cube childCube))
+            {
+                // transform position better be fucking correct istg
+                Vector2Int place = Vector2Int.RoundToInt((Vector2)childCube.transform.position);
+                cubes.Add(place, childCube);
+            }
+        }
     }
 
     public bool AddCube(Cube cubeToAdd, Cube cubeToAddTo, Vector2Int direction)
@@ -64,17 +74,9 @@ public class CubeConstruction : MonoBehaviour
         return (Vector2)index * cubeSideLength;
     }
 
-    public bool GetCubeFromIndex(Vector2Int index, out Cube cube) 
+    public bool GetCubeFromIndex(Vector2Int index, out Cube cube)
     {
-        cube = null;
-        foreach (KeyValuePair<Vector2Int, Cube> pair in cubes)
-        {
-            if (pair.Key == index)
-            {
-                cube = pair.Value;
-                return true;
-            }
-        }
-        return false;
+        if (!cubes.TryGetValue(index, out cube)) return false;
+        return true;
     }
 }
