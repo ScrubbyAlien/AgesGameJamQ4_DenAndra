@@ -4,9 +4,9 @@ using UnityEngine;
 public class CanonCube : Cube
 {
     [Header("Canon Cube")]
-    [SerializeField] private GameObject projectile;
-    [SerializeField] private int cannonDmg;
+    [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float reloadTime;
+    [SerializeField] private Transform shootPostion;
     private float timer;
 
     private void Update()
@@ -22,6 +22,18 @@ public class CanonCube : Cube
     public void Fire()
     {
         //Debug.Log("Fire");
-        GameObject Projectile = Instantiate(projectile);
+        GameObject projectileOb = Instantiate(projectilePrefab, shootPostion.position, shootPostion.rotation, null);
+        Projectile projectile = projectileOb.GetComponent<Projectile>();
+        if(projectile != null)
+        {
+            if (isControlledByPlayer)
+            {
+                projectile.SetUpProjectile(-transform.up, DmgType.Player);
+            }
+            else
+            {
+                projectile.SetUpProjectile(-transform.up, DmgType.Enemy);
+            }
+        }
     }
 }
