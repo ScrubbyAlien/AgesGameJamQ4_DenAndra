@@ -145,6 +145,7 @@ MonoBehaviour:
   controllingConstruction: {fileID: 0}
   positionInConstruction: {x: 0, y: 0}
   animator: {fileID: 6831629455879444828}
+  shoutgunCubePrefab: {fileID: 8637805459716322039}
   projectilePrefab: {fileID: 7887164092079916925, guid: a4c5bb4d5f95a404eb61677c3bf7721c, type: 3}
   reloadTime: 2
   shootPostion: {fileID: 183999766980929779}

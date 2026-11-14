@@ -16,6 +16,19 @@ public class CubeConstruction : MonoBehaviour
 
     [SerializeField]
     private GameObject disconnectedConstructionPrefab;
+    [SerializeField]
+    private PlayerStatePortal ifPlayer;
+
+    public Dictionary<Vector3Int, string> CopyCubeState()
+    {
+        Dictionary<Vector3Int, string> copy = new();
+        foreach (KeyValuePair<Vector2Int, Cube> pair in cubes)
+        {
+            int rotation = Mathf.RoundToInt(pair.Value.transform.localEulerAngles.z / 90);
+            copy.Add(new Vector3Int(pair.Key.x, pair.Key.y, rotation), pair.Value.prefabName);
+        }
+        return copy;
+    }
 
     private void Awake()
     {
@@ -41,6 +54,30 @@ public class CubeConstruction : MonoBehaviour
                     AddCubeAtPosition(childCube, place);
                 }
             }
+        }
+
+        Dictionary<Vector3Int, string> previousState = ifPlayer?.ExtractPreviousCubeState() ?? null;
+        if (previousState != null)
+        {
+            IntializeFromState(previousState);
+        }
+    }
+
+    private void IntializeFromState(Dictionary<Vector3Int, string> cubeState)
+    {
+        foreach (KeyValuePair<Vector3Int, string> pair in cubeState)
+        {
+            Vector2Int position = new Vector2Int(pair.Key.x, pair.Key.y);
+            Debug.Log(pair.Value);
+            if (pair.Value == "") continue;
+            Cube newCube = Instantiate(
+                ifPlayer.GetPrefab(pair.Value),
+                (Vector2)position + (Vector2)transform.position,
+                Quaternion.identity
+            );
+            newCube.transform.parent = transform;
+            newCube.transform.localEulerAngles = new Vector3(0, 0, pair.Key.z * 90);
+            AddCubeAtPosition(newCube, position);
         }
     }
 

@@ -145,6 +145,7 @@ MonoBehaviour:
   controllingConstruction: {fileID: 0}
   positionInConstruction: {x: 0, y: 0}
   animator: {fileID: 2878408111395761832}
+  canonCubePrefab: {fileID: 5218671418312062735}
   projectilePrefab: {fileID: 7173134923042236548, guid: e9b5f4c7f6615024c9b91b58e26e6bb6, type: 3}
   reloadTime: 1
   shootPostion: {fileID: 4818695581565536451}

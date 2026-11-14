@@ -2,12 +2,19 @@ using UnityEngine;
 
 public class ShoutgunCube : Cube
 {
+    public override string prefabName => "Shoutgun";
+
     [Header("Canon Cube")]
-    [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private float reloadTime;
-    [SerializeField] private Transform shootPostion;
-    [SerializeField] private int nrOfBullets;
-    [SerializeField] private int angleOfBullets;
+    [SerializeField]
+    private GameObject projectilePrefab;
+    [SerializeField]
+    private float reloadTime;
+    [SerializeField]
+    private Transform shootPostion;
+    [SerializeField]
+    private int nrOfBullets;
+    [SerializeField]
+    private int angleOfBullets;
     private float timer;
 
     private void Update()
@@ -26,9 +33,8 @@ public class ShoutgunCube : Cube
         //Debug.Log("Fire");
         float degreePerBullet = angleOfBullets / nrOfBullets;
         float startDegree = angleOfBullets * 0.5f;
-        for(int i = 0; i < nrOfBullets; i++)
+        for (int i = 0; i < nrOfBullets; i++)
         {
-            
             GameObject projectileOb = Instantiate(projectilePrefab, shootPostion.position, shootPostion.rotation, null);
             Projectile projectile = projectileOb.GetComponent<Projectile>();
 
@@ -49,7 +55,6 @@ public class ShoutgunCube : Cube
                     projectile.SetUpProjectile(spreedDirection, DmgType.Enemy, this);
                 }
             }
-
         }
     }
 }

@@ -58,6 +58,7 @@ MonoBehaviour:
   controllingConstruction: {fileID: 0}
   positionInConstruction: {x: 0, y: 0}
   animator: {fileID: 3910136121078417578}
+  wallCubePrefab: {fileID: 8240828631212777432}
   killOnK: 0
 --- !u!212 &3004430593387568983
 SpriteRenderer:

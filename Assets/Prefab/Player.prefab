@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubeSideLength: 1
   disconnectedConstructionPrefab: {fileID: 7241942798669745046, guid: 193aa2fb09d684649a2a32b12c5f0fde, type: 3}
+  ifPlayer: {fileID: 11400000, guid: ed01a28af2f95704395bf5feb8de0542, type: 2}
 --- !u!1 &1601307052522871018
 GameObject:
   m_ObjectHideFlags: 0

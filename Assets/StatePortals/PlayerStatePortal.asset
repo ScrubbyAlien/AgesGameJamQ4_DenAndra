@@ -12,4 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da6ef9f96bd3df8458f70a6abbd3a631, type: 3}
   m_Name: PlayerStatePortal
   m_EditorClassIdentifier: 
+  cubePrefabInfos:
+  - name: Bomb
+    prefab: {fileID: 7203667002021417792, guid: 888ae0a2c89dc4f43ad51ba311762bb3, type: 3}
+  - name: Canon
+    prefab: {fileID: 5218671418312062735, guid: 0d2f1d65eada50e4ebcc859a2dd89672, type: 3}
+  - name: MinePlanter
+    prefab: {fileID: 6807755440333595216, guid: 050c704a4e049794d9d5d0c63d3f2eea, type: 3}
+  - name: Shoutgun
+    prefab: {fileID: 8637805459716322039, guid: 219c409c901020c4ca939825269e14af, type: 3}
+  - name: Wall
+    prefab: {fileID: 8240828631212777432, guid: fb3bd47983ac20a439393fd548b4276a, type: 3}
   playerPosition: {x: 0, y: 0}

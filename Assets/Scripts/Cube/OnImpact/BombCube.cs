@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BombCube : Cube
 {
+    public override string prefabName => "Bomb";
+
     [SerializeField]
     GameObject explosionPrefab;
     private bool blownUp = false;

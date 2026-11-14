@@ -58,6 +58,7 @@ MonoBehaviour:
   controllingConstruction: {fileID: 0}
   positionInConstruction: {x: 0, y: 0}
   animator: {fileID: 4929220449927041446}
+  bombCubePrefab: {fileID: 7203667002021417792}
   explosionPrefab: {fileID: 8227213066660741773, guid: 5812620902dd75f498494a384763f689, type: 3}
 --- !u!212 &6744747959773313422
 SpriteRenderer:
