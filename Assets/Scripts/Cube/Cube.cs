@@ -37,7 +37,7 @@ public abstract class Cube : MonoBehaviour
     private void Start()
     {
         currentHp = baseHP;
-        particles.SetActive(false);
+        particles.SetActive(state == BlockState.Inactive);
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collider)
