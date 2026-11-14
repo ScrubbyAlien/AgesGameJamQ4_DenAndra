@@ -17,9 +17,13 @@ public class CubeConstruction : MonoBehaviour
     [SerializeField]
     private GameObject disconnectedConstructionPrefab;
 
-    private void Start()
+    private void Awake()
     {
         cubes = new();
+    }
+
+    private void Start()
+    {
         if (transform.childCount > 0)
         {
             Cube coreCube = transform.GetChild(0).GetComponent<Cube>();
