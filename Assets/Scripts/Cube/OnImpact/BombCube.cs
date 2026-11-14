@@ -5,6 +5,7 @@ using UnityEngine;
 public class BombCube : Cube
 {
     [SerializeField] GameObject explosionPrefab;
+    private bool blownUp = false;
 
     protected override void OnTriggerEnter2D(Collider2D collider)
     {
@@ -26,7 +27,11 @@ public class BombCube : Cube
 
     private void BlowUp()
     {
-        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-        OnDie();
+        if (!blownUp)
+        {
+            blownUp = true;
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            OnDie();
+        }
     }
 }
