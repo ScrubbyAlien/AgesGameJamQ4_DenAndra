@@ -138,6 +138,7 @@ public abstract class Cube : MonoBehaviour
                 controllingConstruction.GetIndexFromCube(this, out Vector2Int index);
                 particles.SetActive(false);
                 GetComponent<BoxCollider2D>().size = new Vector2(0.95f, 0.95f);
+                currentHp = baseHP * 2;
                 if (animator != null)
                 {
                     animator.SetTrigger("Green");
