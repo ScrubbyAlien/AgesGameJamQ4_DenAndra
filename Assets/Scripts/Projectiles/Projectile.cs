@@ -1,6 +1,7 @@
 using Microsoft.Win32.SafeHandles;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Projectile : MonoBehaviour
 {
@@ -17,12 +18,21 @@ public class Projectile : MonoBehaviour
     {
         Destroy(gameObject, 20f);
     }
-    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collider2D)
     {
-        Cube cube = collision.GetComponent<Cube>();
+        if (collider2D is TilemapCollider2D)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Cube cube = collider2D.GetComponent<Cube>();
 
         if (cube != null)
         {
+            // enemies can't shoot walls in the level
+            if (cube is WallCube && !cube.controllingConstruction && dmgType == DmgType.Enemy) return;
+
             if (shooter == cube)
             {
                 return;

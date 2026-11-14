@@ -101543,6 +101543,7 @@ GameObject:
   - component: {fileID: 1003606736}
   - component: {fileID: 1003606735}
   - component: {fileID: 1003606734}
+  - component: {fileID: 1003606737}
   m_Layer: 0
   m_Name: Scenehandler
   m_TagString: Untagged
@@ -101671,6 +101672,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1003606737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003606733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 804ccb4154496a44988975857cc0d6cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: Olle
+  playerConstruction: {fileID: 1312739474}
+  playerStatePortal: {fileID: 11400000, guid: ed01a28af2f95704395bf5feb8de0542, type: 2}
 --- !u!1001 &1004159481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103881,10 +103897,10 @@ MonoBehaviour:
   waveFinished:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1003606735}
-        m_TargetAssemblyTypeName: ChangeScenes, Assembly-CSharp
-        m_MethodName: OnChangeScene
-        m_Mode: 5
+      - m_Target: {fileID: 1003606737}
+        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
+        m_MethodName: GoToNextScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
