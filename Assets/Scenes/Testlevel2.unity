@@ -108043,22 +108043,10 @@ MonoBehaviour:
   enemiesInWave: 6
   timeBetweenSpawns: 2
   firstWave: 1
-  nextWave: {fileID: 0}
+  nextWave: {fileID: 1140800309}
   waveFinished:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1003606735}
-        m_TargetAssemblyTypeName: ChangeScenes, Assembly-CSharp
-        m_MethodName: OnChangeScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Olle
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!4 &1137213402
 Transform:
   m_ObjectHideFlags: 0
@@ -108246,8 +108234,8 @@ MonoBehaviour:
   - {x: 43.2, y: 52.6}
   - {x: 16, y: 65.1}
   - {x: 1.7, y: 51.7}
-  enemiesInWave: 12
-  timeBetweenSpawns: 2
+  enemiesInWave: 8
+  timeBetweenSpawns: 4
   firstWave: 0
   nextWave: {fileID: 1353918417}
   waveFinished:
@@ -110187,8 +110175,8 @@ MonoBehaviour:
   - {x: 43.2, y: 52.6}
   - {x: 16, y: 65.1}
   - {x: 1.7, y: 51.7}
-  enemiesInWave: 12
-  timeBetweenSpawns: 2
+  enemiesInWave: 8
+  timeBetweenSpawns: 4
   firstWave: 0
   nextWave: {fileID: 0}
   waveFinished:
