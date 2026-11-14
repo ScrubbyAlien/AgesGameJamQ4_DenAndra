@@ -14,28 +14,45 @@ public class CubeConstruction : MonoBehaviour
 
     public bool noOriginCube => !cubes.ContainsKey(Vector2Int.zero) || !cubes[Vector2Int.zero];
 
+    [SerializeField]
+    private GameObject disconnectedConstructionPrefab;
+
     private void Start()
     {
         cubes = new();
-        Cube coreCube = transform.GetChild(0).GetComponent<Cube>();
-        if (coreCube)
+        if (transform.childCount > 0)
         {
-            cubes.Add(Vector2Int.zero, coreCube);
-            OnAddCube?.Invoke(count);
-            coreCube.controllingConstruction = this;
-        }
-
-        for (int i = 1; i < transform.childCount; i++)
-        {
-            if (transform.GetChild(i).TryGetComponent(out Cube childCube))
+            Cube coreCube = transform.GetChild(0).GetComponent<Cube>();
+            if (coreCube)
             {
-                // transform position better be fucking correct istg
-                Vector2Int place = Vector2Int.RoundToInt((Vector2)childCube.transform.position);
-                cubes.Add(place, childCube);
-                childCube.controllingConstruction = this;
-                childCube.positionInConstruction = place;
+                AddInitialCube(coreCube);
+            }
+
+            for (int i = 1; i < transform.childCount; i++)
+            {
+                if (transform.GetChild(i).TryGetComponent(out Cube childCube))
+                {
+                    // transform position better be fucking correct istg
+                    Vector2Int place = Vector2Int.RoundToInt((Vector2)childCube.transform.localPosition);
+                    AddCubeAtPosition(childCube, place);
+                }
             }
         }
+    }
+
+    private void AddInitialCube(Cube startCube)
+    {
+        AddCubeAtPosition(startCube, Vector2Int.zero);
+    }
+
+    private void AddCubeAtPosition(Cube cubeToAdd, Vector2Int position)
+    {
+        cubes.Add(position, cubeToAdd);
+        cubeToAdd.controllingConstruction = this;
+        cubeToAdd.positionInConstruction = position;
+        cubeToAdd.isControlledByPlayer = GetComponent<PlayerController>();
+        cubeToAdd.state = BlockState.Controlled;
+        OnAddCube?.Invoke(count);
     }
 
     public bool AddCube(Cube cubeToAdd, Cube cubeToAddTo, Vector2Int direction)
@@ -44,26 +61,65 @@ public class CubeConstruction : MonoBehaviour
         Vector2Int newIndex = index + direction;
         if (cubes.ContainsKey(newIndex)) return false; // place to add to is already occupied
 
+        cubeToAdd.controllingConstruction?.RemoveCube(cubeToAdd);
         cubes.Add(newIndex, cubeToAdd); // add cube
-        OnAddCube?.Invoke(count);
         cubeToAdd.transform.parent = transform;
         cubeToAdd.transform.localPosition = IndexToLocalPosition(newIndex);
         float rotation = cubeToAdd.transform.localEulerAngles.z;
-        Debug.Log(rotation);
         rotation = Mathf.Round(rotation / 90f) * 90f; // round to nearest 90
         cubeToAdd.transform.localEulerAngles = new Vector3(0, 0, rotation);
         cubeToAdd.controllingConstruction = this;
+        cubeToAdd.isControlledByPlayer = GetComponent<PlayerController>();
+        cubeToAdd.state = BlockState.Controlled;
 
         return true;
     }
 
     public void RemoveCube(Cube cubeToRemove)
     {
-        if (GetIndexFromCube(cubeToRemove, out Vector2Int index))
+        if (GetIndexFromCube(cubeToRemove, out Vector2Int removeIndex))
         {
+            if (removeIndex == Vector2Int.zero)
+            {
+                Disintigrate();
+                return;
+            }
+            cubes.Remove(removeIndex);
+        }
+
+        List<List<Cube>> clusters = GetDistinctClusters();
+        List<Cube> coreCluster = clusters[0];
+
+        for (int i = 1; i < clusters.Count; i++)
+        {
+            CreateNewConstructionFromCluster(clusters[i]);
+        }
+    }
+
+    private void Disintigrate()
+    {
+        foreach (Cube cube in cubes.Values)
+        {
+            cube.transform.parent = null;
+            cube.controllingConstruction = null;
+            cube.positionInConstruction = Vector2Int.zero;
+            cube.state = BlockState.Inactive;
+        }
+        cubes.Clear();
+        Destroy(gameObject);
+    }
+
+    public void CreateNewConstructionFromCluster(List<Cube> cluster)
+    {
+        Vector2 position = cluster[0].transform.position;
+        Quaternion rotation = cluster[0].transform.rotation;
+        GameObject newObject = Instantiate(disconnectedConstructionPrefab, position, rotation);
+        foreach (Cube cube in cluster)
+        {
+            cube.transform.parent = newObject.transform;
+            GetIndexFromCube(cube, out Vector2Int index);
             cubes.Remove(index);
         }
-        Debug.Log(CubesConnectedToCore().Count);
     }
 
     public bool GetIndexFromCube(Cube cube, out Vector2Int index)
@@ -112,10 +168,36 @@ public class CubeConstruction : MonoBehaviour
 
     public List<Cube> CubesConnectedToCore()
     {
-        List<Cube> connectedCubes = new() { cubes[Vector2Int.zero] };
+        return FloodFillCluster(Vector2Int.zero);
+    }
+
+    private List<List<Cube>> GetDistinctClusters()
+    {
+        List<List<Cube>> cubeClusters = new();
+        List<Cube> allCubes = cubes.Values.ToList();
+        List<Cube> coreCluster = CubesConnectedToCore();
+        cubeClusters.Add(coreCluster);
+        allCubes.RemoveAll(c => coreCluster.Contains(c));
+        while (allCubes.Count > 0)
+        {
+            GetIndexFromCube(allCubes[0], out Vector2Int index);
+            List<Cube> newCluster = FloodFillCluster(index);
+            Debug.Log(newCluster.Count);
+            allCubes.RemoveAll(c => newCluster.Contains(c));
+            cubeClusters.Add(newCluster);
+        }
+
+        return cubeClusters;
+    }
+
+    private List<Cube> FloodFillCluster(Vector2Int start)
+    {
+        List<Cube> connectedCubes = new();
+        if (cubes.Count == 0) return connectedCubes;
+        connectedCubes.Add(cubes[start]);
         HashSet<Vector2Int> vistited = new();
         Queue<Vector2Int> frontier = new();
-        frontier.Enqueue(Vector2Int.zero);
+        frontier.Enqueue(start);
 
         while (frontier.Count > 0)
         {

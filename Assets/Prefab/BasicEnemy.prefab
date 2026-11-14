@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubeSideLength: 1
+  disconnectedConstructionPrefab: {fileID: 7241942798669745046, guid: 193aa2fb09d684649a2a32b12c5f0fde, type: 3}
 --- !u!1001 &3422178470317020385
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,7 +8,6 @@ public abstract class EnemyController : Controller
     void FixedUpdate()
     {
         thrustThisFrame = GetThrustDirection(playerStatePortal);
-        Debug.Log(thrustThisFrame);
         (turnThisFrame, turnDirection) = GetTurnDirection(playerStatePortal);
 
         UpdateRigidbody();
