@@ -103,12 +103,12 @@ TextureImporter:
       name: "Canon1_r\xF6k2_0"
       rect:
         serializedVersion: 2
-        x: 169
-        y: 96
-        width: 115
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 114
+        y: 48
+        width: 200
+        height: 200
+      alignment: 9
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1165f1e8977f1534da030bec8586b950
     internalID: 0
     vertices: []
     indices: 
