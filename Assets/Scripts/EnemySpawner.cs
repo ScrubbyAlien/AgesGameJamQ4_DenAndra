@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private Vector2[] spawnPositions;
     [SerializeField]
-    private int enemiesInWave;
+    public int enemiesInWave;
     [SerializeField]
     private float timeBetweenSpawns;
     private WaitForSeconds spawnWaitTime;
@@ -23,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private EnemySpawner nextWave;
     [SerializeField]
-    private UnityEvent waveFinished;
+    private UnityEvent<EnemySpawner> waveFinished;
 
     private float startTime;
 
@@ -55,7 +55,7 @@ public class EnemySpawner : MonoBehaviour
         yield return whileEnemiesRemain;
         Debug.Log("wave finished");
         nextWave?.StartWave();
-        waveFinished?.Invoke();
+        waveFinished?.Invoke(nextWave);
     }
 
     private void OnDrawGizmosSelected()
@@ -76,7 +76,7 @@ public class EnemySpawner : MonoBehaviour
         return positionsOutsideCamera[Random.Range(0, positionsOutsideCamera.Length)];
     }
 
-    private EnemyController[] EnemyControllersInScene()
+    public EnemyController[] EnemyControllersInScene()
     {
         return GameObject.FindObjectsByType<EnemyController>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
     }
