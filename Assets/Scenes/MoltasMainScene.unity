@@ -477,7 +477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8240828631212777432, guid: fb3bd47983ac20a439393fd548b4276a, type: 3}
       propertyPath: collsionDmg
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
