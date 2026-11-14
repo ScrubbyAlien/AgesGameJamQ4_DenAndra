@@ -39,10 +39,10 @@ MonoBehaviour:
   Path: Fmod/TheJam/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639302863093696564
+  lastModified: 639302986020588270
   FileSizes:
   - Name: Desktop
-    Value: 1864
+    Value: 1896
   Exists: 1
 --- !u!114 &-7601825658465738388
 MonoBehaviour:
@@ -267,13 +267,14 @@ MonoBehaviour:
   - {fileID: 2296863138915949343}
   - {fileID: -5850088430521188084}
   - {fileID: 1383994705283566213}
+  - {fileID: 5539388863125395982}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4374723372274544269}
   StringsBanks:
   - {fileID: -7636112929799375008}
   cacheVersion: 131861
-  cacheTime: 639302977767001264
+  cacheTime: 639302986020588270
   SerializableEventsDict:
   - key: event:/Music/Track_1
     index: 0
@@ -311,6 +312,8 @@ MonoBehaviour:
     index: 16
   - key: event:/Sound/General/Spin
     index: 17
+  - key: event:/Music/Track_3
+    index: 18
 --- !u!114 &340039543174524253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,11 +516,38 @@ MonoBehaviour:
   Path: Fmod/TheJam/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639302977767001264
+  lastModified: 639302986020508481
   FileSizes:
   - Name: Desktop
-    Value: 2411040
+    Value: 3034048
   Exists: 1
+--- !u!114 &5539388863125395982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Track_3
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Track_3
+  Guid:
+    Data1: -25791070
+    Data2: 1272168715
+    Data3: 845068161
+    Data4: -307081388
+  Banks:
+  - {fileID: 4374723372274544269}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 48000
 --- !u!114 &6824169604263899648
 MonoBehaviour:
   m_ObjectHideFlags: 0
