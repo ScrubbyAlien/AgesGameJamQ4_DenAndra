@@ -5,19 +5,20 @@ using UnityEngine;
 public class BombCube : Cube
 {
     [SerializeField] GameObject explosionPrefab;
-    protected override void OnCollisionEnter2D(Collision2D collider)
+
+    protected override void OnTriggerEnter2D(Collider2D collider)
     {
-        if(state == BlockState.Inactive)
+        if (state == BlockState.Inactive)
         {
             Connect(collider);
             return;
         }
 
-        if (!collider.collider.TryGetComponent(out Cube otherCube)) return;
+        if (!collider.TryGetComponent(out Cube otherCube)) return;
 
         if (otherCube.state == BlockState.Inactive) return;
 
-        if(isControlledByPlayer != otherCube.isControlledByPlayer)
+        if (isControlledByPlayer != otherCube.isControlledByPlayer)
         {
             BlowUp();
         }
