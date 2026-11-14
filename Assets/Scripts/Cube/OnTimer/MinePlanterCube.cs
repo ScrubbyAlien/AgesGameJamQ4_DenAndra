@@ -7,6 +7,7 @@ public class MinePlanterCube : Cube
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float reloadTime;
     [SerializeField] private Transform shootPostion;
+    [SerializeField] private Transform targetPosition;
     private float timer;
 
     private void Update()
@@ -23,17 +24,11 @@ public class MinePlanterCube : Cube
         if (state == BlockState.Inactive) return;
         //Debug.Log("Fire");
         GameObject projectileOb = Instantiate(projectilePrefab, shootPostion.position, shootPostion.rotation, null);
-        Projectile projectile = projectileOb.GetComponent<Projectile>();
-        if (projectile != null)
+        Mine mine  = projectileOb.GetComponent<Mine>();
+        if(mine != null)
         {
-            if (isControlledByPlayer)
-            {
-                projectile.SetUpProjectile(-transform.up, DmgType.Player, this);
-            }
-            else
-            {
-                projectile.SetUpProjectile(-transform.up, DmgType.Enemy, this);
-            }
+            mine.PlanForMine(targetPosition);
         }
+
     }
 }

@@ -9,11 +9,10 @@ public class Mine : MonoBehaviour
     private bool mineActivated = false;
     private bool blownUp = false;
     [SerializeField] private GameObject explosion;
+    private Vector3 direction;
     public void PlanForMine(Transform targetLocation)
     {
-        Vector3 direction = (targetLocation.position - transform.position).normalized;
-
-        transform.position += direction * speed;
+        direction = (targetLocation.position - transform.position).normalized;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -37,6 +36,12 @@ public class Mine : MonoBehaviour
         {
             ActivateMine();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (mineActivated) return;
+        transform.position += direction * speed;
     }
 
     private void ActivateMine()
