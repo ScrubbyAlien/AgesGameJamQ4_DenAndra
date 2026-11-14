@@ -7,16 +7,17 @@ public class Projectile : MonoBehaviour
     [SerializeField] public int dmg = 2;
     [SerializeField] public float speed = 3f;
     [SerializeField] public Rigidbody2D rb;
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        Cube cube = collision.collider.GetComponent<Cube>();
+        Cube cube = collision.GetComponent<Cube>();
 
         if(cube != null)
         {
             cube.TakeDmg(dmg, dmgType);
+            Destroy(gameObject);
         }
 
-        Destroy(gameObject);
+        
 
     }
 

@@ -21,6 +21,7 @@ public class CanonCube : Cube
 
     public void Fire()
     {
+        if (state == BlockState.Inactive) return;
         //Debug.Log("Fire");
         GameObject projectileOb = Instantiate(projectilePrefab, shootPostion.position, shootPostion.rotation, null);
         Projectile projectile = projectileOb.GetComponent<Projectile>();

@@ -14,6 +14,8 @@ public abstract class Cube : MonoBehaviour
     private Dictionary<Vector2, bool> neighbours;
     private CircleCollider2D circleCollider;
 
+    [SerializeField] private GameObject particles;
+
     [HideInInspector]
     public CubeConstruction controllingConstruction;
 
@@ -28,6 +30,7 @@ public abstract class Cube : MonoBehaviour
     {
         neighbours = new();
         currentHp = baseHP;
+        particles.SetActive(false);
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collider)
@@ -77,7 +80,7 @@ public abstract class Cube : MonoBehaviour
         {
             //deatch and become inactive
             Debug.Log("Cube Died");
-            state = BlockState.Inactive;
+            EnterInactiveState();
             currentHp = baseHP;
         }
     }
@@ -118,6 +121,7 @@ public abstract class Cube : MonoBehaviour
                 state = BlockState.Controlled;
                 isControlledByPlayer = true;
                 controllingConstruction.GetIndexFromCube(this, out Vector2Int index);
+                particles.SetActive(false);
                 //ConnectNeighbours(index);
             }
         }
@@ -186,7 +190,14 @@ public abstract class Cube : MonoBehaviour
         }
     }
     */
+
+    public virtual void EnterInactiveState()
+    {
+        state = BlockState.Inactive;
+        particles.SetActive(true);
+    }
 }
+
 
 public enum BlockState
 {
