@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -16,16 +17,20 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float timeBetweenSpawns;
     private WaitForSeconds spawnWaitTime;
+    private WaitWhile whileEnemiesRemain;
     [SerializeField]
     private bool firstWave;
     [SerializeField]
     private EnemySpawner nextWave;
+    [SerializeField]
+    private UnityEvent waveFinished;
 
     private float startTime;
 
     private void Start()
     {
         spawnWaitTime = new WaitForSeconds(timeBetweenSpawns);
+        whileEnemiesRemain = new WaitWhile(() => EnemyControllersInScene().Length > 0);
         if (firstWave)
         {
             StartWave();
@@ -47,7 +52,10 @@ public class EnemySpawner : MonoBehaviour
             Instantiate(enemyPrefab, spawnPosition, randomRotation);
             yield return spawnWaitTime;
         }
+        yield return whileEnemiesRemain;
+        Debug.Log("wave finished");
         nextWave?.StartWave();
+        waveFinished?.Invoke();
     }
 
     private void OnDrawGizmosSelected()
@@ -66,5 +74,10 @@ public class EnemySpawner : MonoBehaviour
         Bounds onScreen = new Bounds(camera.transform.position, new Vector3(width, height, 0));
         Vector2[] positionsOutsideCamera = spawnPositions.Where(p => !onScreen.Contains(p)).ToArray();
         return positionsOutsideCamera[Random.Range(0, positionsOutsideCamera.Length)];
+    }
+
+    private EnemyController[] EnemyControllersInScene()
+    {
+        return GameObject.FindObjectsByType<EnemyController>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
     }
 }
