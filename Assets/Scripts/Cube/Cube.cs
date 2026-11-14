@@ -17,6 +17,7 @@ public abstract class Cube : MonoBehaviour
 
     private void Start()
     {
+        neighbours = new();
         currentHp = baseHP;
     }
 
@@ -145,7 +146,26 @@ public abstract class Cube : MonoBehaviour
     private void ConnectNeighbours(Vector2Int constructionPos)
     {
         Debug.Log(constructionPos);
-        controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.right, out Cube rightCube);
+        if(controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.right, out Cube rightCube))
+        {
+            Debug.Log("I Found Neighbor" + Vector2.right, rightCube);
+            neighbours.Add(Vector2.right, rightCube);
+        }
+        if (controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.left, out Cube leftCube))
+        {
+            Debug.Log("I Found Neighbor" + Vector2.left, leftCube);
+            neighbours.Add(Vector2.left, leftCube);
+        }
+        if (controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.up, out Cube upCube))
+        {
+            Debug.Log("I Found Neighbor" + Vector2.up, upCube);
+            neighbours.Add(Vector2.up, upCube);
+        }
+        if (controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.down, out Cube downCube))
+        {
+            Debug.Log("I Found Neighbor" + Vector2.down, downCube);
+            neighbours.Add(Vector2.down, downCube);
+        }
     }
 }
 

@@ -75,7 +75,6 @@ public class CubeConstruction : MonoBehaviour
                 return true;
             }
         }
-
         return false;
     }
 }
