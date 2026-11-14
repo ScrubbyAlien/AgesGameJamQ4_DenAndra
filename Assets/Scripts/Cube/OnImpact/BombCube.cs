@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class BombCube : Cube
 {
-    [SerializeField] GameObject explosionPrefab;
+    [SerializeField]
+    GameObject explosionPrefab;
     private bool blownUp = false;
 
     protected override void OnTriggerEnter2D(Collider2D collider)
     {
         if (state == BlockState.Inactive)
         {
+            blownUp = false;
             Connect(collider);
             return;
         }
@@ -23,6 +25,11 @@ public class BombCube : Cube
         {
             BlowUp();
         }
+    }
+
+    public override void TakeDmg(int dmg, DmgType type)
+    {
+        BlowUp();
     }
 
     private void BlowUp()

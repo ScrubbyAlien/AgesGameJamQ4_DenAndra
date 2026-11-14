@@ -77,7 +77,6 @@ public abstract class Cube : MonoBehaviour
 
     public virtual void OnDie()
     {
-        Disconnect();
         if (animator != null)
         {
             animator.SetTrigger("Red");
@@ -85,12 +84,13 @@ public abstract class Cube : MonoBehaviour
         if (isControlledByPlayer)
         {
             //deatched other and die
+            Disconnect();
             Destroy(gameObject);
         }
         else
         {
             //deatch and become inactive
-
+            Disconnect();
             Debug.Log("Cube Died");
             EnterInactiveState();
             currentHp = baseHP;
