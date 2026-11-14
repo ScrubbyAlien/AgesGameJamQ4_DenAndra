@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class BombCube : Cube
 {
-    protected override void OnCollisionEnter2D(Collision2D collider)
-    {
-
-    }
+    // protected override void OnCollisionEnter2D(Collision2D collider)
+    // {
+    //
+    // }
 }

@@ -8,11 +8,21 @@ public abstract class Cube : MonoBehaviour
     public int currentHp;
     public int collsionDmg;
     public bool isControlledByPlayer;
+    [Min(0f)]
+    public float pickUpRadius;
 
-    private Dictionary<Vector2, bool> neighbours; 
+    private Dictionary<Vector2, bool> neighbours;
+    private CircleCollider2D circleCollider;
 
     [HideInInspector]
     public CubeConstruction controllingConstruction;
+
+    private void Awake()
+    {
+        circleCollider = gameObject.AddComponent<CircleCollider2D>();
+        circleCollider.radius = pickUpRadius;
+        circleCollider.isTrigger = true;
+    }
 
     private void Start()
     {
@@ -20,7 +30,7 @@ public abstract class Cube : MonoBehaviour
         currentHp = baseHP;
     }
 
-    protected virtual void OnCollisionEnter2D(Collision2D collider)
+    protected virtual void OnTriggerEnter2D(Collider2D collider)
     {
         if (state == BlockState.Inactive)
         {
@@ -29,9 +39,9 @@ public abstract class Cube : MonoBehaviour
 
         if (state == BlockState.Controlled)
         {
-            if (!collider.collider.TryGetComponent(out Cube otherCube)) return;
+            if (!collider.TryGetComponent(out Cube otherCube)) return;
 
-            if(otherCube.state == BlockState.Inactive)
+            if (otherCube.state == BlockState.Inactive)
             {
                 return;
             }
@@ -47,11 +57,11 @@ public abstract class Cube : MonoBehaviour
         }
     }
 
-    protected virtual void OnCollisionStay2D(Collision2D collision)
+    protected virtual void OnTriggerStay2D(Collider2D collider)
     {
         if (state == BlockState.Inactive)
         {
-            Connect(collision);
+            Connect(collider);
         }
     }
 
@@ -93,9 +103,9 @@ public abstract class Cube : MonoBehaviour
         }
     }
     //Handle Connection
-    public virtual void Connect(Collision2D collision)
+    public virtual void Connect(Collider2D collider)
     {
-        if (!collision.collider.TryGetComponent(out Cube otherCube)) return;
+        if (!collider.TryGetComponent(out Cube otherCube)) return;
 
         if (otherCube.isControlledByPlayer)
         {
@@ -150,7 +160,7 @@ public abstract class Cube : MonoBehaviour
     }
 
     //Handles so the cube knows it neighbours and so on
-    
+
     /*
     private void ConnectNeighbours(Vector2Int constructionPos)
     {
@@ -177,7 +187,6 @@ public abstract class Cube : MonoBehaviour
     }
     */
 }
-
 
 public enum BlockState
 {

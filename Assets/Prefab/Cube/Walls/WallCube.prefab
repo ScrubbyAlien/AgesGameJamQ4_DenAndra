@@ -51,6 +51,7 @@ MonoBehaviour:
   currentHp: 0
   collsionDmg: 0
   isControlledByPlayer: 0
+  pickUpRadius: 0.7
   controllingConstruction: {fileID: 0}
 --- !u!212 &3004430593387568983
 SpriteRenderer:
