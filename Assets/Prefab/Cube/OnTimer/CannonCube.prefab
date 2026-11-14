@@ -138,6 +138,7 @@ MonoBehaviour:
   currentHp: 1
   collsionDmg: 0
   isControlledByPlayer: 0
+  pickUpRadius: 0.6
   controllingConstruction: {fileID: 0}
   projectilePrefab: {fileID: 7173134923042236548, guid: e9b5f4c7f6615024c9b91b58e26e6bb6, type: 3}
   reloadTime: 1
@@ -179,8 +180,8 @@ BoxCollider2D:
   m_Offset: {x: -0.0039999485, y: -0.0057388544}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5038095, y: 0.5952381}
-    oldSize: {x: 1.05, y: 1.26}
+    pivot: {x: 0.5, y: 0.6666667}
+    oldSize: {x: 1, y: 1.5}
     newSize: {x: 2.1, y: 2.52}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

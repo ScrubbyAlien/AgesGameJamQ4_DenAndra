@@ -27,5 +27,6 @@ public class BombCube : Cube
     private void BlowUp()
     {
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        OnDie();
     }
 }
