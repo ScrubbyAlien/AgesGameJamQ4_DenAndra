@@ -66,11 +66,11 @@ MonoBehaviour:
   - {fileID: 4374723372274544269}
   IsStream: 1
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 163709
+  Length: 70000
 --- !u!114 &-6684311005015971281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -7636112929799375008}
   cacheVersion: 131861
-  cacheTime: 639302919720239370
+  cacheTime: 639302977767001264
   SerializableEventsDict:
   - key: event:/Music/Track_1
     index: 0
@@ -360,12 +360,12 @@ MonoBehaviour:
   - {fileID: 4374723372274544269}
   IsStream: 1
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters:
   - {fileID: 959936278058499459}
   MinDistance: 1
   MaxDistance: 20
-  Length: 118230
+  Length: 80000
 --- !u!114 &959936278058499459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,10 +513,10 @@ MonoBehaviour:
   Path: Fmod/TheJam/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639302919720239370
+  lastModified: 639302977767001264
   FileSizes:
   - Name: Desktop
-    Value: 4436960
+    Value: 2411040
   Exists: 1
 --- !u!114 &6824169604263899648
 MonoBehaviour:

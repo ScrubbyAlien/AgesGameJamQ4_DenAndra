@@ -1228,6 +1228,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6035136525127858775, guid: fb3bd47983ac20a439393fd548b4276a, type: 3}
   m_PrefabInstance: {fileID: 686882891}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &79193871 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8532309300365174996, guid: da53512f4db5aec42b284f5f94cebff8, type: 3}
+  m_PrefabInstance: {fileID: 1625497165}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6d91d6c49182024697f88c01d253829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &81010205 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6035136525127858775, guid: fb3bd47983ac20a439393fd548b4276a, type: 3}
@@ -191120,7 +191131,19 @@ MonoBehaviour:
   nextWave: {fileID: 1713327052}
   waveFinished:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 79193871}
+        m_TargetAssemblyTypeName: FillMeter, Assembly-CSharp
+        m_MethodName: ResetFill
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1007921721
 Transform:
   m_ObjectHideFlags: 0
@@ -200571,6 +200594,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 8532309300365174996, guid: da53512f4db5aec42b284f5f94cebff8, type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 1007921720}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -201866,7 +201893,19 @@ MonoBehaviour:
   nextWave: {fileID: 2031124788}
   waveFinished:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 79193871}
+        m_TargetAssemblyTypeName: FillMeter, Assembly-CSharp
+        m_MethodName: ResetFill
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1713327053
 Transform:
   m_ObjectHideFlags: 0
@@ -228871,7 +228910,19 @@ MonoBehaviour:
   nextWave: {fileID: 843928647}
   waveFinished:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 79193871}
+        m_TargetAssemblyTypeName: FillMeter, Assembly-CSharp
+        m_MethodName: ResetFill
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &2031124789
 Transform:
   m_ObjectHideFlags: 0
