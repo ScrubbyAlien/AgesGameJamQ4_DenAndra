@@ -105307,7 +105307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterText: {fileID: 1622813319}
-  construction: {fileID: 0}
+  construction: {fileID: 1312739474}
 --- !u!114 &904604748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110048,6 +110048,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5165723968541044205, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
+      propertyPath: playerStatePortal
+      value: 
+      objectReference: {fileID: 11400000, guid: ed01a28af2f95704395bf5feb8de0542, type: 2}
     - target: {fileID: 7637218673411192975, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.829171
@@ -110098,6 +110102,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7637218673411192975, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
   m_PrefabInstance: {fileID: 1312739472}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1312739474 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 870404463079570408, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
+  m_PrefabInstance: {fileID: 1312739472}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1dc4d7654949745ba294e410255974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1322520032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112098,6 +112113,14 @@ PrefabInstance:
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 1312739473}
+    - target: {fileID: 8095628847424354339, guid: da53512f4db5aec42b284f5f94cebff8, type: 3}
+      propertyPath: cubeConstruct
+      value: 
+      objectReference: {fileID: 1312739474}
+    - target: {fileID: 8095628847424354339, guid: da53512f4db5aec42b284f5f94cebff8, type: 3}
+      propertyPath: cameraStartSize
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8294355907502548592, guid: da53512f4db5aec42b284f5f94cebff8, type: 3}
       propertyPath: m_Name
       value: PlayerCamera
