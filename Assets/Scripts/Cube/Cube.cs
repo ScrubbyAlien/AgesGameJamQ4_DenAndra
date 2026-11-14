@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public abstract class Cube : MonoBehaviour
@@ -45,6 +44,14 @@ public abstract class Cube : MonoBehaviour
             {
                 otherCube.TakeDmg(collsionDmg, DmgType.Enemy);
             }
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (state == BlockState.Inactive)
+        {
+            Connect(collision);
         }
     }
 
@@ -101,7 +108,7 @@ public abstract class Cube : MonoBehaviour
                 state = BlockState.Controlled;
                 isControlledByPlayer = true;
                 controllingConstruction.GetIndexFromCube(this, out Vector2Int index);
-                ConnectNeighbours(index);
+                //ConnectNeighbours(index);
             }
         }
     }
@@ -143,30 +150,32 @@ public abstract class Cube : MonoBehaviour
     }
 
     //Handles so the cube knows it neighbours and so on
+    
+    /*
     private void ConnectNeighbours(Vector2Int constructionPos)
     {
-        Debug.Log(constructionPos);
         if(controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.right, out Cube rightCube))
         {
-            Debug.Log("I Found Neighbor" + Vector2.right, rightCube);
             neighbours.Add(Vector2.right, rightCube);
+            rightCube.neighbours.Add(Vector2Int.left, this);
         }
         if (controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.left, out Cube leftCube))
         {
-            Debug.Log("I Found Neighbor" + Vector2.left, leftCube);
             neighbours.Add(Vector2.left, leftCube);
+            leftCube.neighbours.Add(Vector2Int.right, this);
         }
         if (controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.up, out Cube upCube))
         {
-            Debug.Log("I Found Neighbor" + Vector2.up, upCube);
             neighbours.Add(Vector2.up, upCube);
+            upCube.neighbours.Add(Vector2Int.down, this);
         }
         if (controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.down, out Cube downCube))
         {
-            Debug.Log("I Found Neighbor" + Vector2.down, downCube);
             neighbours.Add(Vector2.down, downCube);
+            upCube.neighbours.Add(Vector2Int.down, this);
         }
     }
+    */
 }
 
 
