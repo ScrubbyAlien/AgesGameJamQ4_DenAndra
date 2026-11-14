@@ -125,7 +125,7 @@ public class MusicController : MonoBehaviour
             mInstance.release();
         }
         
-        mInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        mInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     public void SetEventParam(int index)

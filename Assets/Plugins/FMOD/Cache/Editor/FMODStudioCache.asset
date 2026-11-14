@@ -314,13 +314,14 @@ MonoBehaviour:
     Data4: -568789667
   Banks:
   - {fileID: 8931329781458767521}
-  IsStream: 0
-  Is3D: 0
+  IsStream: 1
+  Is3D: 1
   IsOneShot: 1
-  Parameters: []
+  Parameters:
+  - {fileID: -812025993606340671}
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 163709
 --- !u!114 &-2588259060444266457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,6 +474,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-812025993606340671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Moving/Thrust
+  m_EditorClassIdentifier: 
+  Name: Thrust
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3553070314
+    data2: 4269926089
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-606254347251430364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,14 +639,13 @@ MonoBehaviour:
   - {fileID: -563085970183628375}
   - {fileID: -606254347251430364}
   - {fileID: 8415657080710057101}
-  - {fileID: 7737326836864373402}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8931329781458767521}
   StringsBanks:
   - {fileID: 5138757519588948292}
   cacheVersion: 131861
-  cacheTime: 639302468519429481
+  cacheTime: 639302614881749171
   SerializableEventsDict:
   - key: event:/Music/Track_1
     index: 0
@@ -657,8 +681,6 @@ MonoBehaviour:
     index: 15
   - key: event:/Sound/Weapons/Rocket
     index: 16
-  - key: event:/Sound/Movement/Thruster
-    index: 17
 --- !u!114 &12121077213203430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -939,10 +961,10 @@ MonoBehaviour:
   Path: Fmod/TheJam/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639302468519429481
+  lastModified: 639302614881749171
   FileSizes:
   - Name: Desktop
-    Value: 1830
+    Value: 1828
   Exists: 1
 --- !u!114 &5682705138939312137
 MonoBehaviour:
@@ -1018,33 +1040,6 @@ MonoBehaviour:
     Data4: -1870952875
   Banks:
   - {fileID: 12121077213203430}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &7737326836864373402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Sound/Movement/Thruster
-  m_EditorClassIdentifier: 
-  Path: event:/Sound/Movement/Thruster
-  Guid:
-    Data1: 1569817581
-    Data2: 1266847639
-    Data3: 1458082218
-    Data4: -1540527571
-  Banks:
-  - {fileID: 8931329781458767521}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1175,8 +1170,8 @@ MonoBehaviour:
   Path: Fmod/TheJam/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639302468519419517
+  lastModified: 639302614881733935
   FileSizes:
   - Name: Desktop
-    Value: 4098080
+    Value: 4098944
   Exists: 1
