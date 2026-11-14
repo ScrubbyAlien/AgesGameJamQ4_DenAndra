@@ -79,4 +79,22 @@ public class CubeConstruction : MonoBehaviour
         if (!cubes.TryGetValue(index, out cube)) return false;
         return true;
     }
+
+    public Dictionary<Type, int> GetCubeTypes()
+    {
+        Dictionary<Type, int> types = new();
+        foreach (Cube cube in cubes.Values)
+        {
+            Type cubeType = cube.GetType();
+            if (types.TryGetValue(cubeType, out int count))
+            {
+                types[cubeType] = count + 1;
+            }
+            else
+            {
+                types.Add(cubeType, 1);
+            }
+        }
+        return types;
+    }
 }
