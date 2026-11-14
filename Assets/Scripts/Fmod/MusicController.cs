@@ -95,6 +95,12 @@ public class MusicController : MonoBehaviour
         //Skapar FMOD instans med eventreferens från listan muRef
         mInstance = RuntimeManager.CreateInstance(audioManager.muRef[indexRef]);
     }
+    
+    public void InitEventByIndex(int index)
+    {
+        //Skapar FMOD instans med eventreferens från listan muRef
+        mInstance = RuntimeManager.CreateInstance(audioManager.muRef[index]);
+    }
 
     public void PlayEvent()
     {
