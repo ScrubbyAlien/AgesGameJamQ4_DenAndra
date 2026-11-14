@@ -35,6 +35,10 @@ public class CubeConstruction : MonoBehaviour
         OnAddCube?.Invoke(count);
         cubeToAdd.transform.parent = transform;
         cubeToAdd.transform.localPosition = IndexToLocalPosition(newIndex);
+        float rotation = cubeToAdd.transform.localEulerAngles.z;
+        Debug.Log(rotation);
+        rotation = Mathf.Round(rotation / 90f) * 90f; // round to nearest 90
+        cubeToAdd.transform.localEulerAngles = new Vector3(0, 0, rotation);
         cubeToAdd.controllingConstruction = this;
 
         return true;

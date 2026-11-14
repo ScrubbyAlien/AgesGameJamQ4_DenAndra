@@ -14,7 +14,6 @@ public abstract class Cube : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collider)
     {
-        Debug.Log(state, this);
         if (state == BlockState.Inactive)
         {
             Connect(collider);
@@ -67,21 +66,56 @@ public abstract class Cube : MonoBehaviour
     public virtual void Connect(Collision2D collision)
     {
         if (!collision.collider.TryGetComponent(out Cube otherCube)) return;
-        Debug.Log(otherCube.name);
 
         if (otherCube.isControlledByPlayer)
         {
-            //connect cube to player
-            state = BlockState.Controlled;
-            otherCube.controllingConstruction.AddCube(this, otherCube, Vector2Int.right);
+            // attempt to connect cube to player
+            float playerRotation = otherCube.controllingConstruction.transform.eulerAngles.z;
+            Debug.Log(playerRotation);
+            Vector2Int direction = GetDirection(otherCube.transform.position, transform.position, playerRotation);
+            if (otherCube.controllingConstruction.AddCube(this, otherCube, direction))
+            {
+                state = BlockState.Controlled;
+                isControlledByPlayer = true;
+            }
         }
     }
-    //
-    // private Vector2Int GetDirection(Vector3 attachToPosition, Vector3 attacheePosition)
-    // {
-    //     Vector3 direction = (attacheePosition - attachToPosition).normalized;
-    //
-    // }
+
+    private Vector2Int GetDirection(Vector3 attachToPosition, Vector3 attacheePosition, float rotation = 0f)
+    {
+        Vector3 direction = (attacheePosition - attachToPosition).normalized;
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        { // right or left
+            if (direction.x > 0) return CompensateRotation(rotation, Vector2Int.right);
+            else return CompensateRotation(rotation, Vector2Int.left);
+        }
+        else
+        { // up or down
+            if (direction.y > 0) return CompensateRotation(rotation, Vector2Int.up);
+            else return CompensateRotation(rotation, Vector2Int.down);
+        }
+    }
+
+    private Vector2Int CompensateRotation(float rotation, Vector2Int direction)
+    {
+        rotation = Mathf.Round(rotation / 90) * 90; // round to nearest 90 deg
+        rotation %= 360; // ensure rotation is positive
+        while (rotation > 0)
+        {
+            (int x, int y) tuple = (direction.x, direction.y);
+            tuple = tuple switch {
+                (0, 1) => (1, 0),
+                (1, 0) => (0, -1),
+                (0, -1) => (-1, 0),
+                (-1, 0) => (0, 1),
+                _ => (0, 0)
+            };
+            Debug.Assert(tuple != (0, 0));
+            direction = new Vector2Int(tuple.x, tuple.y);
+            rotation -= 90;
+        }
+        return direction;
+    }
 }
 
 public enum BlockState
