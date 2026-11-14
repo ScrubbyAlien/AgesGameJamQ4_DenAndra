@@ -46,10 +46,13 @@ public abstract class Cube : MonoBehaviour
         {
             Connect(collider);
         }
+    }
 
+    protected void OnCollisionEnter2D(Collision2D collision)
+    {
         if (state == BlockState.Controlled)
         {
-            if (!collider.TryGetComponent(out Cube otherCube)) return;
+            if (!collision.collider.TryGetComponent(out Cube otherCube)) return;
 
             if (otherCube.state == BlockState.Inactive)
             {
@@ -121,8 +124,6 @@ public abstract class Cube : MonoBehaviour
     //Handle Connection
     public virtual void Connect(Collider2D collider)
     {
-        // todo: trigger connect animation
-
         if (!collider.TryGetComponent(out Cube otherCube)) return;
 
         if (otherCube.isControlledByPlayer)
@@ -136,7 +137,8 @@ public abstract class Cube : MonoBehaviour
                 isControlledByPlayer = true;
                 controllingConstruction.GetIndexFromCube(this, out Vector2Int index);
                 particles.SetActive(false);
-
+                GetComponent<BoxCollider2D>().size = new Vector2(0.95f, 0.95f);
+                currentHp = baseHP * 2;
                 if (animator != null)
                 {
                     animator.SetTrigger("Green");
