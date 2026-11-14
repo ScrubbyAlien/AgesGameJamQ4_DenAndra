@@ -39,10 +39,10 @@ MonoBehaviour:
   Path: Fmod/TheJam/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639302617440259132
+  lastModified: 639302863093696564
   FileSizes:
   - Name: Desktop
-    Value: 1828
+    Value: 1864
   Exists: 1
 --- !u!114 &-7601825658465738388
 MonoBehaviour:
@@ -119,12 +119,12 @@ MonoBehaviour:
   Banks:
   - {fileID: 4374723372274544269}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 906
 --- !u!114 &-5493501173367976145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,12 +173,12 @@ MonoBehaviour:
   Banks:
   - {fileID: 4374723372274544269}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 500
 --- !u!114 &-3732582203163374849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,7 +205,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1000
+  Length: 312
 --- !u!114 &-2427627369716833621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,12 +227,12 @@ MonoBehaviour:
   Banks:
   - {fileID: 4374723372274544269}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 500
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,13 +266,14 @@ MonoBehaviour:
   - {fileID: -5493501173367976145}
   - {fileID: 2296863138915949343}
   - {fileID: -5850088430521188084}
+  - {fileID: 1383994705283566213}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4374723372274544269}
   StringsBanks:
   - {fileID: -7636112929799375008}
   cacheVersion: 131861
-  cacheTime: 639302690836785145
+  cacheTime: 639302863093696564
   SerializableEventsDict:
   - key: event:/Music/Track_1
     index: 0
@@ -308,6 +309,8 @@ MonoBehaviour:
     index: 15
   - key: event:/Sound/Weapons/Rocket
     index: 16
+  - key: event:/Sound/General/Spin
+    index: 17
 --- !u!114 &340039543174524253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,6 +417,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &1383994705283566213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sound/General/Spin
+  m_EditorClassIdentifier: 
+  Path: event:/Sound/General/Spin
+  Guid:
+    Data1: -1218444832
+    Data2: 1248055591
+    Data3: 1400703922
+    Data4: -1542056995
+  Banks:
+  - {fileID: 4374723372274544269}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 625
 --- !u!114 &2296863138915949343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,7 +470,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2500
+  Length: 1750
 --- !u!114 &2970584521566662461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,12 +492,12 @@ MonoBehaviour:
   Banks:
   - {fileID: 4374723372274544269}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 906
 --- !u!114 &4374723372274544269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,10 +513,10 @@ MonoBehaviour:
   Path: Fmod/TheJam/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639302690836785145
+  lastModified: 639302863093616788
   FileSizes:
   - Name: Desktop
-    Value: 4178688
+    Value: 4435872
   Exists: 1
 --- !u!114 &6824169604263899648
 MonoBehaviour:
@@ -510,12 +540,12 @@ MonoBehaviour:
   - {fileID: 4374723372274544269}
   IsStream: 1
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters:
   - {fileID: -9149620568459349016}
   MinDistance: 1
   MaxDistance: 20
-  Length: 163709
+  Length: 8000
 --- !u!114 &8293606021998105082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,9 +648,9 @@ MonoBehaviour:
   Banks:
   - {fileID: 4374723372274544269}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 500
