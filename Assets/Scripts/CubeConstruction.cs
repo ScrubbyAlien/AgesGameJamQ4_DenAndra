@@ -33,6 +33,12 @@ public class CubeConstruction : MonoBehaviour
     private void Awake()
     {
         cubes = new();
+        if (ifPlayer) ifPlayer.FixStuckness += Shed;
+    }
+
+    private void OnDestroy()
+    {
+        if (ifPlayer) ifPlayer.FixStuckness -= Shed;
     }
 
     private void Start()
@@ -156,6 +162,21 @@ public class CubeConstruction : MonoBehaviour
         }
         cubes.Clear();
         Destroy(gameObject);
+    }
+
+    private void Shed()
+    {
+        Cube core = cubes[Vector2Int.zero];
+        cubes.Remove(Vector2Int.zero);
+
+        foreach (KeyValuePair<Vector2Int, Cube> pair in cubes)
+        {
+            Destroy(pair.Value.gameObject);
+        }
+
+        cubes.Clear();
+        cubes.Add(Vector2Int.zero, core);
+        OnAddCube?.Invoke(count);
     }
 
     public void CreateNewConstructionFromCluster(List<Cube> cluster)

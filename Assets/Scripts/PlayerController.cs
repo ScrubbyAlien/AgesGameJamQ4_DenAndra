@@ -10,6 +10,7 @@ public class PlayerController : Controller
 
     private InputAction thrust;
     private InputAction turn;
+    private InputAction fixStuckness;
 
     [SerializeField]
     private PlayerStatePortal playerStatePortal;
@@ -18,6 +19,15 @@ public class PlayerController : Controller
     {
         thrust = InputSystem.actions.FindAction("Thrust");
         turn = InputSystem.actions.FindAction("Turn");
+        fixStuckness = InputSystem.actions.FindAction("FixStuckness");
+    }
+
+    private void Update()
+    {
+        if (fixStuckness.WasPressedThisFrame())
+        {
+            playerStatePortal.InvokeFixStuckness();
+        }
     }
 
     private void FixedUpdate()

@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour
     }
     protected virtual void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if (collider2D is TilemapCollider2D)
+        if (collider2D is CompositeCollider2D)
         {
             Destroy(gameObject);
             return;
@@ -31,7 +31,11 @@ public class Projectile : MonoBehaviour
         if (cube != null)
         {
             // enemies can't shoot walls in the level
-            if (cube is WallCube && !cube.controllingConstruction && dmgType == DmgType.Enemy) return;
+            if (cube is WallCube && !cube.controllingConstruction && dmgType == DmgType.Enemy)
+            {
+                Destroy(gameObject);
+                return;
+            }
 
             if (shooter == cube)
             {

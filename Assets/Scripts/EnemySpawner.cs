@@ -30,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         spawnWaitTime = new WaitForSeconds(timeBetweenSpawns);
+        // todo: count enemycores instead of controllers
         whileEnemiesRemain = new WaitWhile(() => EnemyControllersInScene().Length > 0);
         if (firstWave)
         {

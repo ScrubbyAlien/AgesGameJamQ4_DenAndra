@@ -6,6 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerStatePortal", menuName = "Scriptable Objects/PlayerStatePortal")]
 public class PlayerStatePortal : ScriptableObject
 {
+    public event Action FixStuckness;
+
     [SerializeField]
     private CubePrefabInfo[] cubePrefabInfos;
 
@@ -33,6 +35,11 @@ public class PlayerStatePortal : ScriptableObject
     public Cube GetPrefab(string name)
     {
         return cubePrefabInfos.First(i => i.name == name).prefab;
+    }
+
+    public void InvokeFixStuckness()
+    {
+        FixStuckness?.Invoke();
     }
 
     [Serializable]
