@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{8d9728a7-dbe2-4add-b11d-cd7afc04dd3d}">
+	<object class="AudioFile" id="{7aedeafa-b75f-45a9-a66c-aec5dfa91e03}">
 		<property name="assetPath">
-			<value>MusicAss/Scattle - To The Top.mp3</value>
+			<value>MusicAss/DaBleepBloop.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
@@ -14,7 +14,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>118.23020408163265</value>
+			<value>80</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{6b0e1e5f-ccd0-4bed-bb48-fc58f35c4a72}</destination>
