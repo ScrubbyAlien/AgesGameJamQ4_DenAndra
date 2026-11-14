@@ -5,6 +5,21 @@ public class CoreCube : Cube
     /// <inheritdoc />
     protected override void OnTriggerEnter2D(Collider2D collider)
     {
+        if (state == BlockState.Controlled)
+        {
+            if (!collider.TryGetComponent(out Cube otherCube)) return;
+
+            if (otherCube.state == BlockState.Inactive)
+            {
+                return;
+            }
+
+            if (isControlledByPlayer)
+            {
+                otherCube.TakeDmg(collsionDmg, DmgType.Player);
+            }
+
+        }
         return;
     }
 
