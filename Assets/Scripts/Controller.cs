@@ -7,7 +7,7 @@ public class Controller : MonoBehaviour
     private Rigidbody2D body;
 
     [SerializeField]
-    private float thrustStrength, maxSpeed, rotationTime;
+    private float thrustStrength, maxSpeed, dampening, rotationTime;
 
     protected Vector2 thrustThisFrame;
 
@@ -18,10 +18,6 @@ public class Controller : MonoBehaviour
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
-    }
-
-    private void Start()
-    {
         body.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
@@ -31,6 +27,11 @@ public class Controller : MonoBehaviour
 
         body.AddForce(thrustThisFrame * thrustStrength);
         body.linearVelocity = Vector2.ClampMagnitude(body.linearVelocity, maxSpeed);
+        if (thrustThisFrame.sqrMagnitude == 0)
+        {
+            body.linearVelocity *= dampening;
+        }
+        Debug.Log($"{gameObject.name} {body.linearVelocity}");
 
         if (turnThisFrame)
         {

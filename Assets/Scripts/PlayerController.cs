@@ -11,6 +11,9 @@ public class PlayerController : Controller
     private InputAction thrust;
     private InputAction turn;
 
+    [SerializeField]
+    private PlayerStatePortal playerStatePortal;
+
     private void Start()
     {
         thrust = InputSystem.actions.FindAction("Thrust");
@@ -19,6 +22,8 @@ public class PlayerController : Controller
 
     private void FixedUpdate()
     {
+        playerStatePortal.playerPosition = transform.position;
+
         thrustThisFrame = thrust.ReadValue<Vector2>();
         OnThrustInput?.Invoke(thrustThisFrame);
         turnThisFrame = turn.IsPressed() && turning == null;
