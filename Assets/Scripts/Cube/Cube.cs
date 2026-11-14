@@ -5,12 +5,18 @@ using UnityEngine;
 public abstract class Cube : MonoBehaviour
 {
     public BlockState state;
-    public int hp;
+    public int baseHP;
+    public int currentHp;
     public int collsionDmg;
     public bool isControlledByPlayer;
 
     [HideInInspector]
     public CubeConstruction controllingConstruction;
+
+    private void Start()
+    {
+        currentHp = baseHP;
+    }
 
     public void OnCollisionEnter2D(Collision2D collider)
     {
@@ -21,10 +27,20 @@ public abstract class Cube : MonoBehaviour
 
         if (state == BlockState.Controlled)
         {
-            Cube otherCube = collider.gameObject.GetComponent<Cube>();
-            if (otherCube != null)
+            if (!collider.collider.TryGetComponent(out Cube otherCube)) return;
+
+            if(otherCube.state == BlockState.Inactive)
             {
-                otherCube.TakeDmg(collsionDmg);
+                return;
+            }
+
+            if (isControlledByPlayer)
+            {
+                otherCube.TakeDmg(collsionDmg, DmgType.Player);
+            }
+            else
+            {
+                otherCube.TakeDmg(collsionDmg, DmgType.Enemy);
             }
         }
     }
@@ -42,22 +58,26 @@ public abstract class Cube : MonoBehaviour
             //deatch and become inactive
             Debug.Log("Cube Died");
             state = BlockState.Inactive;
+            currentHp = baseHP;
         }
     }
-    public virtual void TakeDmg(int dmg)
+    public virtual void TakeDmg(int dmg, DmgType type)
     {
         if (state == BlockState.Inactive)
         {
             return;
         }
+        //no dmg if player is 
+        if (isControlledByPlayer && type == DmgType.Player) return;
 
-        Debug.Log(this + "took dmg" + dmg);
+        //no dmg if non player is vs enemy
+        if (!isControlledByPlayer && type == DmgType.Enemy) return;
 
-        hp = hp - dmg;
+        currentHp = currentHp - dmg;
 
-        if (hp <= 0)
+        if (currentHp <= 0)
         {
-            hp = 0;
+            currentHp = 0;
 
             OnDie();
         }
@@ -122,4 +142,11 @@ public enum BlockState
 {
     Inactive,
     Controlled
+}
+
+public enum DmgType
+{
+    Player,
+    Enemy,
+    Neutral
 }
