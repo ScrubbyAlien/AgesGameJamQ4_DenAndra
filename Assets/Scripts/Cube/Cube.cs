@@ -20,7 +20,7 @@ public abstract class Cube : MonoBehaviour
         currentHp = baseHP;
     }
 
-    public void OnCollisionEnter2D(Collision2D collider)
+    protected virtual void OnCollisionEnter2D(Collision2D collider)
     {
         if (state == BlockState.Inactive)
         {
@@ -47,7 +47,7 @@ public abstract class Cube : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    protected virtual void OnCollisionStay2D(Collision2D collision)
     {
         if (state == BlockState.Inactive)
         {
