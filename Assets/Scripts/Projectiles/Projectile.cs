@@ -5,9 +5,12 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public DmgType dmgType;
-    [SerializeField] public int dmg = 2;
-    [SerializeField] public float speed = 3f;
-    [SerializeField] public Rigidbody2D rb;
+    [SerializeField]
+    public int dmg = 2;
+    [SerializeField]
+    public float speed = 3f;
+    [SerializeField]
+    public Rigidbody2D rb;
     private Cube shooter = null;
 
     private void Start()
@@ -18,22 +21,20 @@ public class Projectile : MonoBehaviour
     {
         Cube cube = collision.GetComponent<Cube>();
 
-        if(cube != null)
+        if (cube != null)
         {
-            if(shooter == cube)
+            if (shooter == cube)
             {
                 return;
             }
             cube.TakeDmg(dmg, dmgType);
             Destroy(gameObject);
         }
-
-        
-
     }
 
     public virtual void SetUpProjectile(Vector3 direction, DmgType type, Cube cubeShooter)
     {
         shooter = cubeShooter;
+        dmgType = type;
     }
 }

@@ -104,6 +104,7 @@ public class CubeConstruction : MonoBehaviour
             cube.transform.parent = null;
             cube.controllingConstruction = null;
             cube.positionInConstruction = Vector2Int.zero;
+            cube.isControlledByPlayer = false;
             cube.state = BlockState.Inactive;
         }
         cubes.Clear();

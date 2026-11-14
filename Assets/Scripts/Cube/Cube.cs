@@ -98,6 +98,7 @@ public abstract class Cube : MonoBehaviour
     }
     public virtual void TakeDmg(int dmg, DmgType type)
     {
+        // Debug.Log($"{gameObject.name} {dmg} {type}");
         if (state == BlockState.Inactive)
         {
             return;
@@ -106,7 +107,7 @@ public abstract class Cube : MonoBehaviour
         if (isControlledByPlayer && type == DmgType.Player) return;
 
         //no dmg if non player is vs enemy
-        if (!isControlledByPlayer && type == DmgType.Enemy) return;
+        // if (!isControlledByPlayer && type == DmgType.Enemy) return;
 
         currentHp = currentHp - dmg;
 

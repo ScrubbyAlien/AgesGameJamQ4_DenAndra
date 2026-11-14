@@ -18,9 +18,17 @@ public class CoreCube : Cube
             {
                 otherCube.TakeDmg(collsionDmg, DmgType.Player);
             }
-
         }
         return;
+    }
+
+    /// <inheritdoc />
+    protected override void OnTriggerStay2D(Collider2D collider)
+    {
+        if (isControlledByPlayer)
+        {
+            base.OnTriggerStay2D(collider);
+        }
     }
 
     /// <inheritdoc />
