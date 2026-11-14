@@ -103,12 +103,12 @@ TextureImporter:
       name: Canon1_0
       rect:
         serializedVersion: 2
-        x: 95
-        y: 153
-        width: 210
-        height: 252
+        x: 100
+        y: 100
+        width: 200
+        height: 300
       alignment: 9
-      pivot: {x: 0.5038095, y: 0.5952381}
+      pivot: {x: 0.5, y: 0.6666667}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -136,6 +136,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Canon1_0: 7910367896139138147
+      Canon1_1: 1277438960
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
