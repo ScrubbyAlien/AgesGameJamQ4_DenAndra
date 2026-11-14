@@ -621,7 +621,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 5138757519588948292}
   cacheVersion: 131861
-  cacheTime: 639302468519429481
+  cacheTime: 639302156597662801
   SerializableEventsDict:
   - key: event:/Music/Track_1
     index: 0
@@ -939,7 +939,7 @@ MonoBehaviour:
   Path: Fmod/TheJam/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639302468519429481
+  lastModified: 639302156597662801
   FileSizes:
   - Name: Desktop
     Value: 1830
@@ -1175,7 +1175,7 @@ MonoBehaviour:
   Path: Fmod/TheJam/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639302468519419517
+  lastModified: 639302156597632801
   FileSizes:
   - Name: Desktop
     Value: 4098080
