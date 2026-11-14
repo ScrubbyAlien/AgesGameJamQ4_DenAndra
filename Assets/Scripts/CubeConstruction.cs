@@ -44,7 +44,7 @@ public class CubeConstruction : MonoBehaviour
         return true;
     }
 
-    private bool GetIndexFromCube(Cube cube, out Vector2Int index)
+    public bool GetIndexFromCube(Cube cube, out Vector2Int index)
     {
         index = Vector2Int.zero;
         foreach (KeyValuePair<Vector2Int, Cube> pair in cubes)
@@ -62,5 +62,20 @@ public class CubeConstruction : MonoBehaviour
     private Vector3 IndexToLocalPosition(Vector2Int index)
     {
         return (Vector2)index * cubeSideLength;
+    }
+
+    public bool GetCubeFromIndex(Vector2Int index, out Cube cube) 
+    {
+        cube = null;
+        foreach (KeyValuePair<Vector2Int, Cube> pair in cubes)
+        {
+            if (pair.Key == index)
+            {
+                cube = pair.Value;
+                return true;
+            }
+        }
+
+        return false;
     }
 }

@@ -1,5 +1,5 @@
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public abstract class Cube : MonoBehaviour
@@ -9,6 +9,8 @@ public abstract class Cube : MonoBehaviour
     public int currentHp;
     public int collsionDmg;
     public bool isControlledByPlayer;
+
+    private Dictionary<Vector2, bool> neighbours; 
 
     [HideInInspector]
     public CubeConstruction controllingConstruction;
@@ -97,6 +99,8 @@ public abstract class Cube : MonoBehaviour
             {
                 state = BlockState.Controlled;
                 isControlledByPlayer = true;
+                controllingConstruction.GetIndexFromCube(this, out Vector2Int index);
+                ConnectNeighbours(index);
             }
         }
     }
@@ -136,7 +140,15 @@ public abstract class Cube : MonoBehaviour
         }
         return direction;
     }
+
+    //Handles so the cube knows it neighbours and so on
+    private void ConnectNeighbours(Vector2Int constructionPos)
+    {
+        Debug.Log(constructionPos);
+        controllingConstruction.GetCubeFromIndex(constructionPos + Vector2Int.right, out Cube rightCube);
+    }
 }
+
 
 public enum BlockState
 {
