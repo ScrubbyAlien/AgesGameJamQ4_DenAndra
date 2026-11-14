@@ -239,17 +239,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particles
       objectReference: {fileID: 0}
+    - target: {fileID: 4106072900624471599, guid: b58332c0c06f4a241bfef860f36f7871, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106072900624471599, guid: b58332c0c06f4a241bfef860f36f7871, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6338460125353854377, guid: b58332c0c06f4a241bfef860f36f7871, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6338460125353854377, guid: b58332c0c06f4a241bfef860f36f7871, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -52
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6338460125353854377, guid: b58332c0c06f4a241bfef860f36f7871, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.14730677
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6338460125353854377, guid: b58332c0c06f4a241bfef860f36f7871, type: 3}
       propertyPath: m_LocalRotation.w
