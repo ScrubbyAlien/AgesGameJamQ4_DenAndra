@@ -4,6 +4,7 @@ using UnityEngine;
 public class CoreCube : Cube
 {
     public static event Action EnemyDied;
+    public static event Action<int> PlayerTakeDamage;
     public override string prefabName => "";
 
     /// <inheritdoc />
@@ -32,6 +33,16 @@ public class CoreCube : Cube
         if (isControlledByPlayer)
         {
             base.OnTriggerStay2D(collider);
+        }
+    }
+
+    /// <inheritdoc />
+    public override void TakeDmg(int dmg, DmgType type)
+    {
+        base.TakeDmg(dmg, type);
+        if (isControlledByPlayer)
+        {
+            PlayerTakeDamage?.Invoke(currentHp);
         }
     }
 
