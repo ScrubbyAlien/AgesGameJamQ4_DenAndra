@@ -102413,7 +102413,7 @@ MonoBehaviour:
   - {x: 43.2, y: 52.6}
   - {x: 16, y: 65.1}
   - {x: 1.7, y: 51.7}
-  enemiesInWave: 6
+  enemiesInWave: 5
   timeBetweenSpawns: 2
   firstWave: 1
   nextWave: {fileID: 1140800309}
@@ -104062,7 +104062,7 @@ MonoBehaviour:
   - {x: 43.2, y: 52.6}
   - {x: 16, y: 65.1}
   - {x: 1.7, y: 51.7}
-  enemiesInWave: 6
+  enemiesInWave: 5
   timeBetweenSpawns: 2
   firstWave: 0
   nextWave: {fileID: 1315557339}
