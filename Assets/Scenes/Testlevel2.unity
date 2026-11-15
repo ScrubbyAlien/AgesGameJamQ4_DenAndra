@@ -101779,14 +101779,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1010272871255223182, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
       propertyPath: PlayerDied.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1010272871255223182, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
       propertyPath: PlayerDied.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010272871255223182, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
+      propertyPath: PlayerDied.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1010272871255223182, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
       propertyPath: PlayerDied.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1493569640}
+    - target: {fileID: 1010272871255223182, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
+      propertyPath: PlayerDied.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1735831528}
     - target: {fileID: 1010272871255223182, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
@@ -101794,11 +101802,23 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1010272871255223182, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
+      propertyPath: PlayerDied.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010272871255223182, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
       propertyPath: PlayerDied.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpawnBloodSplatter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010272871255223182, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
+      propertyPath: PlayerDied.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 1010272871255223182, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
       propertyPath: PlayerDied.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BloodSplatter, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010272871255223182, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
+      propertyPath: PlayerDied.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1010272871255223182, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
@@ -101806,7 +101826,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1010272871255223182, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
+      propertyPath: PlayerDied.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010272871255223182, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
       propertyPath: PlayerDied.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010272871255223182, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
+      propertyPath: PlayerDied.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7637218673411192975, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
@@ -102531,6 +102559,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33decdbc6c6970c4785412042c92ab38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1493569640 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1040447692499655681, guid: eeb0253851c382a4ca3662dba6ef515a, type: 3}
+  m_PrefabInstance: {fileID: 1312739472}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9189ea644c1f329459d4f2130620c6da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1498431747
