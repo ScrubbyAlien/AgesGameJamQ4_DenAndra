@@ -209,6 +209,12 @@ public abstract class Cube : MonoBehaviour
         // return true if there is no neighnbour in that direction
         return !controllingConstruction.GetCubeFromIndex(positionInConstruction + direction, out Cube _);
     }
+
+    public virtual void EnterControlledState()
+    {
+        state = BlockState.Controlled;
+        particles.SetActive(false);
+    }
 }
 
 public enum BlockState
