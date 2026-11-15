@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CanonCube : Cube
 {
@@ -14,6 +15,9 @@ public class CanonCube : Cube
     private Transform shootPostion;
     private float timer;
     private Vector2Int pointingDirection = Vector2Int.down;
+
+    [SerializeField]
+    private UnityEvent OnFire;
 
     private void Update()
     {
@@ -47,6 +51,7 @@ public class CanonCube : Cube
             {
                 projectile.SetUpProjectile(-transform.up, DmgType.Enemy, this);
             }
+            OnFire?.Invoke();
         }
     }
 }

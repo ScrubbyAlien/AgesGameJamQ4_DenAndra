@@ -59,6 +59,7 @@ public class CoreCube : Cube
     /// <inheritdoc />
     public override void OnDie()
     {
+        OnCubeDie?.Invoke();
         currentHp = 0;
         if (isControlledByPlayer)
         {

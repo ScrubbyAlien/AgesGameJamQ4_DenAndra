@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ShoutgunCube : Cube
 {
@@ -16,6 +17,9 @@ public class ShoutgunCube : Cube
     [SerializeField]
     private int angleOfBullets;
     private float timer;
+
+    [SerializeField]
+    private UnityEvent OnFire;
 
     private void Update()
     {
@@ -54,6 +58,7 @@ public class ShoutgunCube : Cube
                 {
                     projectile.SetUpProjectile(spreedDirection, DmgType.Enemy, this);
                 }
+                OnFire?.Invoke();
             }
         }
     }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class Cube : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public abstract class Cube : MonoBehaviour
     [Header("Animatior")]
     [SerializeField]
     private Animator animator;
+
+    [SerializeField]
+    protected UnityEvent OnTakeDamage, OnCubeDie;
 
     private void Awake()
     {
@@ -87,6 +91,7 @@ public abstract class Cube : MonoBehaviour
         {
             animator.SetTrigger("Red");
         }
+        OnCubeDie?.Invoke();
         if (isControlledByPlayer)
         {
             //deatched other and die
@@ -108,13 +113,15 @@ public abstract class Cube : MonoBehaviour
         {
             return;
         }
-        //no dmg if player is 
+
+        //no dmg if player is
         if (isControlledByPlayer && type == DmgType.Player) return;
 
         //no dmg if non player is vs enemy
         if (!isControlledByPlayer && type == DmgType.Enemy) return;
 
         currentHp = currentHp - dmg;
+        OnTakeDamage?.Invoke();
 
         if (currentHp <= 0)
         {

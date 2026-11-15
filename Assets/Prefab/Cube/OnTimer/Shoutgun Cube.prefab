@@ -63,6 +63,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3641143998371832972}
   - {fileID: 3705928117424179135}
   - {fileID: 183999766980929779}
   - {fileID: 6782948758356564180}
@@ -145,12 +146,56 @@ MonoBehaviour:
   controllingConstruction: {fileID: 0}
   positionInConstruction: {x: 0, y: 0}
   animator: {fileID: 6831629455879444828}
-  shoutgunCubePrefab: {fileID: 8637805459716322039}
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6655310350047142371}
+        m_TargetAssemblyTypeName: SoundController, Assembly-CSharp
+        m_MethodName: PlayLocalOneshot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnCubeDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6655310350047142371}
+        m_TargetAssemblyTypeName: SoundController, Assembly-CSharp
+        m_MethodName: PlayLocalOneshot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   projectilePrefab: {fileID: 7887164092079916925, guid: a4c5bb4d5f95a404eb61677c3bf7721c, type: 3}
   reloadTime: 2
   shootPostion: {fileID: 183999766980929779}
   nrOfBullets: 3
   angleOfBullets: 50
+  OnFire:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6655310350047142371}
+        m_TargetAssemblyTypeName: SoundController, Assembly-CSharp
+        m_MethodName: PlayLocalOneshot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &7541833986952479475
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -197,6 +242,93 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.05, y: 1.3}
   m_EdgeRadius: 0
+--- !u!1 &6527989924197639653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3641143998371832972}
+  - component: {fileID: 6655310350047142371}
+  m_Layer: 0
+  m_Name: SoundController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3641143998371832972
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6527989924197639653}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.84392846, y: -1.9708053, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 393600312310565185}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6655310350047142371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6527989924197639653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26244fc9c0dad7647ab593ebc93b3f67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oneShotRef:
+  - Guid:
+      Data1: -1424149437
+      Data2: 1083932158
+      Data3: 944489094
+      Data4: -1976930625
+    Path: event:/Sound/Weapons/Shotgun
+  - Guid:
+      Data1: -1404154841
+      Data2: 1336522139
+      Data3: 2084767916
+      Data4: 2006090682
+    Path: event:/Sound/General/BlockDamaged
+  - Guid:
+      Data1: -1927481968
+      Data2: 1220454066
+      Data3: 262686870
+      Data4: 1939789883
+    Path: event:/Sound/General/BlockDestroyed
+  isCoreBlock: 0
+  thrustEnabled: 0
+  initiateContEventsOnStart: 0
+  debugEnabled: 0
+  play: 0
+  pause: 0
+  stop: 0
+  oneshotIndex: 0
+  playOne: 0
+  weaponPath:
+  - event:/Sound/Weapons/Pistol
+  - event:/Sound/Weapons/Shotgun
+  - event:/Sound/Weapons/Laser
+  - event:/Sound/Weapons/Rocket
+  - event:/Sound/Weapons/Bomb
+  utilityPath:
+  - event:/Sound/Utility/Sugpropp
+  generalPath:
+  - event:/Sound/General/BlockAdd
+  - event:/Sound/General/BlockRemoved
+  - event:/Sound/General/BlockDamaged
+  - event:/Sound/General/BlockDestroyed
+  - event:/Sound/General/Death
+  - event:/Sound/General/Spin
 --- !u!1001 &7122426864530308903
 PrefabInstance:
   m_ObjectHideFlags: 0

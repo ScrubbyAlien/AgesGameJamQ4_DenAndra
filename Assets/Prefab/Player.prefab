@@ -1,5 +1,86 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &13128360904278940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2212315923406288910}
+  - component: {fileID: 2083124648925768950}
+  m_Layer: 0
+  m_Name: SoundController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2212315923406288910
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13128360904278940}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 7637218673411192975}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2083124648925768950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13128360904278940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26244fc9c0dad7647ab593ebc93b3f67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oneShotRef:
+  - Guid:
+      Data1: -1982272868
+      Data2: 1255734128
+      Data3: 957596557
+      Data4: -2110920314
+    Path: event:/Sound/General/BlockAdd
+  - Guid:
+      Data1: 405459817
+      Data2: 1196186020
+      Data3: -1648852557
+      Data4: -1870952875
+    Path: event:/Sound/General/BlockRemoved
+  isCoreBlock: 0
+  thrustEnabled: 0
+  initiateContEventsOnStart: 0
+  debugEnabled: 0
+  play: 0
+  pause: 0
+  stop: 0
+  oneshotIndex: 0
+  playOne: 0
+  weaponPath:
+  - event:/Sound/Weapons/Pistol
+  - event:/Sound/Weapons/Shotgun
+  - event:/Sound/Weapons/Laser
+  - event:/Sound/Weapons/Rocket
+  - event:/Sound/Weapons/Bomb
+  utilityPath:
+  - event:/Sound/Utility/Sugpropp
+  generalPath:
+  - event:/Sound/General/BlockAdd
+  - event:/Sound/General/BlockRemoved
+  - event:/Sound/General/BlockDamaged
+  - event:/Sound/General/BlockDestroyed
+  - event:/Sound/General/Death
+  - event:/Sound/General/Spin
 --- !u!1 &222302486193271096
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,6 +93,7 @@ GameObject:
   - component: {fileID: 6424633649199381999}
   - component: {fileID: 5165723968541044205}
   - component: {fileID: 870404463079570408}
+  - component: {fileID: 260173637330016523}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -33,6 +115,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8986367592116475016}
+  - {fileID: 2212315923406288910}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &6424633649199381999
@@ -94,6 +177,50 @@ MonoBehaviour:
   cubeSideLength: 1
   disconnectedConstructionPrefab: {fileID: 7241942798669745046, guid: 193aa2fb09d684649a2a32b12c5f0fde, type: 3}
   ifPlayer: {fileID: 11400000, guid: ed01a28af2f95704395bf5feb8de0542, type: 2}
+  CubeAdded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2083124648925768950}
+        m_TargetAssemblyTypeName: SoundController, Assembly-CSharp
+        m_MethodName: PlayLocalOneshot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  CubeRemoved:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2083124648925768950}
+        m_TargetAssemblyTypeName: SoundController, Assembly-CSharp
+        m_MethodName: PlayLocalOneshot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &260173637330016523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222302486193271096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 222302486193271096}
 --- !u!1 &1601307052522871018
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,6 +333,9 @@ MonoBehaviour:
   controllingConstruction: {fileID: 0}
   positionInConstruction: {x: 0, y: 0}
   animator: {fileID: 0}
+  PlayerDied:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &569281098871756603
 BoxCollider2D:
   m_ObjectHideFlags: 0

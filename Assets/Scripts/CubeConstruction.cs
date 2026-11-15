@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CubeConstruction : MonoBehaviour
 {
@@ -18,6 +20,17 @@ public class CubeConstruction : MonoBehaviour
     private GameObject disconnectedConstructionPrefab;
     [SerializeField]
     private PlayerStatePortal ifPlayer;
+    private bool isPlayer => ifPlayer;
+
+    [SerializeField, ShowIf("isPlayer")]
+    private UnityEvent CubeAdded, CubeRemoved;
+
+    private void InvokeCubeAddedEvent()
+    {
+        Debug.Log("added");
+        OnAddCube?.Invoke(count);
+        CubeAdded?.Invoke();
+    }
 
     public Dictionary<Vector3Int, string> CopyCubeState()
     {
@@ -99,7 +112,7 @@ public class CubeConstruction : MonoBehaviour
         cubeToAdd.positionInConstruction = position;
         cubeToAdd.isControlledByPlayer = GetComponent<PlayerController>();
         cubeToAdd.state = BlockState.Controlled;
-        OnAddCube?.Invoke(count);
+        InvokeCubeAddedEvent();
     }
 
     public bool AddCube(Cube cubeToAdd, Cube cubeToAddTo, Vector2Int direction)
@@ -118,7 +131,7 @@ public class CubeConstruction : MonoBehaviour
         cubeToAdd.controllingConstruction = this;
         cubeToAdd.isControlledByPlayer = GetComponent<PlayerController>();
         cubeToAdd.state = BlockState.Controlled;
-        OnAddCube?.Invoke(count);
+        InvokeCubeAddedEvent();
 
         return true;
     }
@@ -126,6 +139,8 @@ public class CubeConstruction : MonoBehaviour
     public void RemoveCube(Cube cubeToRemove)
     {
         if (!GetIndexFromCube(cubeToRemove, out Vector2Int removeIndex)) return;
+
+        CubeRemoved?.Invoke();
 
         if (removeIndex == Vector2Int.zero)
         {
@@ -159,6 +174,7 @@ public class CubeConstruction : MonoBehaviour
 
     private void SetInactive(Cube cube)
     {
+        if (!cube) return;
         cube.transform.parent = null;
         cube.controllingConstruction = null;
         cube.positionInConstruction = Vector2Int.zero;
@@ -188,7 +204,7 @@ public class CubeConstruction : MonoBehaviour
 
         cubes.Clear();
         cubes.Add(Vector2Int.zero, core);
-        OnAddCube?.Invoke(count);
+        InvokeCubeAddedEvent();
     }
 
     public void CreateNewConstructionFromCluster(List<Cube> cluster)
@@ -265,7 +281,8 @@ public class CubeConstruction : MonoBehaviour
             GetIndexFromCube(allCubes[0], out Vector2Int index);
             List<Cube> newCluster = FloodFillCluster(index);
             Debug.Log(newCluster.Count);
-            allCubes.RemoveAll(c => newCluster.Contains(c));
+            if (newCluster.Count == 0) continue;
+            allCubes.RemoveAll(c => newCluster.Contains(c) || !cubes.ContainsValue(c));
             cubeClusters.Add(newCluster);
         }
 
@@ -276,6 +293,7 @@ public class CubeConstruction : MonoBehaviour
     {
         List<Cube> connectedCubes = new();
         if (cubes.Count == 0) return connectedCubes;
+        if (!cubes.ContainsKey(start)) return connectedCubes;
         connectedCubes.Add(cubes[start]);
         HashSet<Vector2Int> vistited = new();
         Queue<Vector2Int> frontier = new();

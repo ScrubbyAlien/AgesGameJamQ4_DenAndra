@@ -32,6 +32,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 4698353255084995545}
   - {fileID: 9140345246165673493}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -57,6 +58,39 @@ MonoBehaviour:
   controllingConstruction: {fileID: 0}
   positionInConstruction: {x: 0, y: 0}
   animator: {fileID: 0}
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2784578146577791650}
+        m_TargetAssemblyTypeName: SoundController, Assembly-CSharp
+        m_MethodName: PlayLocalOneshot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnCubeDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2784578146577791650}
+        m_TargetAssemblyTypeName: SoundController, Assembly-CSharp
+        m_MethodName: PlayLocalOneshot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  PlayerDied:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!212 &3753981021348721865
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -109,7 +143,7 @@ SpriteRenderer:
   m_Size: {x: 1.05, y: 1.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &-4235776699007481207
@@ -158,6 +192,87 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &6089301230384491070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4698353255084995545}
+  - component: {fileID: 2784578146577791650}
+  m_Layer: 0
+  m_Name: SoundController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4698353255084995545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6089301230384491070}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 3185814090448856506}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2784578146577791650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6089301230384491070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26244fc9c0dad7647ab593ebc93b3f67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oneShotRef:
+  - Guid:
+      Data1: -1404154841
+      Data2: 1336522139
+      Data3: 2084767916
+      Data4: 2006090682
+    Path: event:/Sound/General/BlockDamaged
+  - Guid:
+      Data1: -1927481968
+      Data2: 1220454066
+      Data3: 262686870
+      Data4: 1939789883
+    Path: event:/Sound/General/BlockDestroyed
+  isCoreBlock: 0
+  thrustEnabled: 0
+  initiateContEventsOnStart: 0
+  debugEnabled: 0
+  play: 0
+  pause: 0
+  stop: 0
+  oneshotIndex: 0
+  playOne: 0
+  weaponPath:
+  - event:/Sound/Weapons/Pistol
+  - event:/Sound/Weapons/Shotgun
+  - event:/Sound/Weapons/Laser
+  - event:/Sound/Weapons/Rocket
+  - event:/Sound/Weapons/Bomb
+  utilityPath:
+  - event:/Sound/Utility/Sugpropp
+  generalPath:
+  - event:/Sound/General/BlockAdd
+  - event:/Sound/General/BlockRemoved
+  - event:/Sound/General/BlockDamaged
+  - event:/Sound/General/BlockDestroyed
+  - event:/Sound/General/Death
+  - event:/Sound/General/Spin
 --- !u!1001 &668848585577599000
 PrefabInstance:
   m_ObjectHideFlags: 0

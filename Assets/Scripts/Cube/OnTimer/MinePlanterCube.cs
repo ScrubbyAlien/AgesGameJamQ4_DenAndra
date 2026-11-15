@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MinePlanterCube : Cube
 {
@@ -10,6 +11,9 @@ public class MinePlanterCube : Cube
     [SerializeField] private Transform shootPostion;
     [SerializeField] private Transform targetPosition;
     private float timer;
+
+    [SerializeField]
+    private UnityEvent OnFire;
 
     private void Update()
     {
@@ -28,6 +32,7 @@ public class MinePlanterCube : Cube
         Mine mine  = projectileOb.GetComponent<Mine>();
         if(mine != null)
         {
+            OnFire?.Invoke();
             mine.PlanForMine(targetPosition);
         }
 

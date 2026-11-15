@@ -1,5 +1,80 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6267951302862806339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1809131512912521020}
+  - component: {fileID: 3184767192157487011}
+  m_Layer: 0
+  m_Name: SoundController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1809131512912521020
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6267951302862806339}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.999, y: -0.152, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 8615735372384744973}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3184767192157487011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6267951302862806339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26244fc9c0dad7647ab593ebc93b3f67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oneShotRef:
+  - Guid:
+      Data1: 188770535
+      Data2: 1157767557
+      Data3: -1275117434
+      Data4: -2133704931
+    Path: event:/Sound/Weapons/Bomb
+  isCoreBlock: 0
+  thrustEnabled: 0
+  initiateContEventsOnStart: 0
+  debugEnabled: 0
+  play: 0
+  pause: 0
+  stop: 0
+  oneshotIndex: 0
+  playOne: 0
+  weaponPath:
+  - event:/Sound/Weapons/Pistol
+  - event:/Sound/Weapons/Shotgun
+  - event:/Sound/Weapons/Laser
+  - event:/Sound/Weapons/Rocket
+  - event:/Sound/Weapons/Bomb
+  utilityPath:
+  - event:/Sound/Utility/Sugpropp
+  generalPath:
+  - event:/Sound/General/BlockAdd
+  - event:/Sound/General/BlockRemoved
+  - event:/Sound/General/BlockDamaged
+  - event:/Sound/General/BlockDestroyed
+  - event:/Sound/General/Death
+  - event:/Sound/General/Spin
 --- !u!1 &8227213066660741773
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,7 +107,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1809131512912521020}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6345150084232454532
@@ -138,6 +214,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9788edbc6e7d544787a701d407dafb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnExplode:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3184767192157487011}
+        m_TargetAssemblyTypeName: SoundController, Assembly-CSharp
+        m_MethodName: PlayLocalOneshot
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &4618277500480496386
 Animator:
   serializedVersion: 7
