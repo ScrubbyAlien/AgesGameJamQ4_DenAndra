@@ -183576,6 +183576,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf34067abc272e04e9aef48c2dea6792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayTrack:
+    m_PersistentCalls:
+      m_Calls: []
+  PauseTrack:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &991085680
 Transform:
   m_ObjectHideFlags: 0
