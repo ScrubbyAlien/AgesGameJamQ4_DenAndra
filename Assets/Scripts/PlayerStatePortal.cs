@@ -22,6 +22,11 @@ public class PlayerStatePortal : ScriptableObject
         readPreviousCubeState = true;
     }
 
+    public void RemeberLastCubeState()
+    {
+        readPreviousCubeState = true;
+    }
+
     public Dictionary<Vector3Int, string> ExtractPreviousCubeState()
     {
         if (readPreviousCubeState)

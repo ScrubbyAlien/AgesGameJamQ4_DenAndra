@@ -11,7 +11,7 @@ public class Explosion : MonoBehaviour
         Debug.Log("FUCK ME");
 
         if (!collision.TryGetComponent(out Cube otherCube)) return;
-        otherCube.TakeDmg(1000, DmgType.Neutral);
+        otherCube.TakeDmg(4, DmgType.Neutral);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -19,6 +19,6 @@ public class Explosion : MonoBehaviour
         Debug.Log("FUCK ME");
 
         if (!collision.TryGetComponent(out Cube otherCube)) return;
-        otherCube.TakeDmg(1000, DmgType.Neutral);
+        otherCube.TakeDmg(4, DmgType.Neutral);
     }
 }
