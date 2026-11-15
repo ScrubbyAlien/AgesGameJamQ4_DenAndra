@@ -594,6 +594,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6035136525127858775, guid: fb3bd47983ac20a439393fd548b4276a, type: 3}
   m_PrefabInstance: {fileID: 1469911727}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &81738621
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -48
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.000000014901161
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405883807206276536, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_Name
+      value: Shoutgun Cube (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637805459716322039, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: state
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 219c409c901020c4ca939825269e14af, type: 3}
 --- !u!1001 &82710366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2689,6 +2750,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6035136525127858775, guid: fb3bd47983ac20a439393fd548b4276a, type: 3}
   m_PrefabInstance: {fileID: 1830258123}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &383241280
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.0000029504295
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405883807206276536, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_Name
+      value: Shoutgun Cube (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637805459716322039, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: state
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 219c409c901020c4ca939825269e14af, type: 3}
 --- !u!1001 &390012995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3331,6 +3453,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb3bd47983ac20a439393fd548b4276a, type: 3}
+--- !u!1001 &511329675
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.0000029504295
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405883807206276536, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_Name
+      value: Shoutgun Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637805459716322039, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: state
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 219c409c901020c4ca939825269e14af, type: 3}
 --- !u!1001 &517048056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -189141,6 +189324,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6035136525127858775, guid: fb3bd47983ac20a439393fd548b4276a, type: 3}
   m_PrefabInstance: {fileID: 1733327031}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1806571828
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.0000029504295
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405883807206276536, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_Name
+      value: Shoutgun Cube (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637805459716322039, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: state
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 219c409c901020c4ca939825269e14af, type: 3}
 --- !u!1001 &1811533530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -190316,6 +190560,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb3bd47983ac20a439393fd548b4276a, type: 3}
+--- !u!1001 &1921305297
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -48
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.000000014901161
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405883807206276536, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_Name
+      value: Shoutgun Cube (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637805459716322039, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: state
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 219c409c901020c4ca939825269e14af, type: 3}
 --- !u!4 &1923613700 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6035136525127858775, guid: fb3bd47983ac20a439393fd548b4276a, type: 3}
@@ -190507,6 +190812,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb3bd47983ac20a439393fd548b4276a, type: 3}
+--- !u!1001 &1956651066
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -48
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.000000014901161
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 393600312310565185, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405883807206276536, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: m_Name
+      value: Shoutgun Cube (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8637805459716322039, guid: 219c409c901020c4ca939825269e14af, type: 3}
+      propertyPath: state
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 219c409c901020c4ca939825269e14af, type: 3}
 --- !u!1001 &1961202917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -214271,3 +214637,9 @@ SceneRoots:
   - {fileID: 1713327053}
   - {fileID: 2031124789}
   - {fileID: 843928648}
+  - {fileID: 511329675}
+  - {fileID: 1806571828}
+  - {fileID: 383241280}
+  - {fileID: 1921305297}
+  - {fileID: 1956651066}
+  - {fileID: 81738621}
