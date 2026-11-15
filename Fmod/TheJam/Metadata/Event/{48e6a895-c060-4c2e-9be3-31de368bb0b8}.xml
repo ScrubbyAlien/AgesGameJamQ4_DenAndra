@@ -103,6 +103,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{8430a269-4b40-4c56-a245-8669e2ad57bf}">
+		<property name="volume">
+			<value>-11.5</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -153,7 +156,7 @@
 	<object class="SpatialiserEffect" id="{fcd5854c-2982-4516-95c4-e4e7e773c9f4}" />
 	<object class="AutomationPoint" id="{71bdca19-99d5-430b-8562-8e82e755d050}">
 		<property name="position">
-			<value>0.79816840949009504</value>
+			<value>0.375</value>
 		</property>
 		<property name="value">
 			<value>1</value>

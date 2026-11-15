@@ -515,6 +515,8 @@ MonoBehaviour:
   - event:/Sound/General/BlockDamaged
   - event:/Sound/General/BlockDestroyed
   - event:/Sound/General/Death
+  - event:/Sound/General/Spin
+  - event:/Sound/General/Fart
 --- !u!4 &1110702467
 Transform:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class TestForSound : MonoBehaviour
     public int uIndex;
     public bool uPLay;
     [Header("GeneralIndex")]
-    [Range(0, 5)]
+    [Range(0, 6)]
     public int gIndex;
     public bool gPLay;
     
@@ -44,6 +44,7 @@ public class TestForSound : MonoBehaviour
         "event:/Sound/General/BlockDestroyed",
         "event:/Sound/General/Death",
         "event:/Sound/General/Spin",
+        "event:/Sound/General/Fart",
     };
 
     void Start()
