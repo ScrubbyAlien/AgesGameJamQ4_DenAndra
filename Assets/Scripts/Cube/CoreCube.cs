@@ -49,14 +49,22 @@ public class CoreCube : Cube
     /// <inheritdoc />
     public override void EnterInactiveState()
     {
-        currentHp = 0;
         DIE();
     }
 
     /// <inheritdoc />
     public override void OnDie()
     {
-        DIE();
+        currentHp = 0;
+        if (isControlledByPlayer)
+        {
+            PlayerTakeDamage?.Invoke(currentHp);
+            Debug.Log("lose game");
+        }
+        else
+        {
+            EnemyDied?.Invoke();
+        }
         Disconnect();
     }
 
@@ -64,15 +72,5 @@ public class CoreCube : Cube
     {
         Destroy(gameObject);
         particles?.SetActive(true);
-
-        if (isControlledByPlayer)
-        {
-            PlayerTakeDamage?.Invoke(currentHp);
-            // todo: lose game
-        }
-        else
-        {
-            EnemyDied?.Invoke();
-        }
     }
 }
