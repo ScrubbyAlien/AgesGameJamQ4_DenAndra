@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 1
-  baseHP: 10
+  baseHP: 20
   currentHp: 0
   collsionDmg: 1
   isControlledByPlayer: 1

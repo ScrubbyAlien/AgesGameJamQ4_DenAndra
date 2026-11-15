@@ -33,9 +33,7 @@ public class FillMeter : MonoBehaviour
     private void CalculateEnemies()
     {
         amountToFill = maxAmount / spawner.enemiesInWave;
-        Debug.Log("OLLE" + spawner.enemiesInWave);
-        Debug.Log("OLLE" + amountToFill);
-        Debug.Log("OLLE" + maxAmount);
+        
 
     }
 
