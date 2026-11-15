@@ -19,7 +19,7 @@ public class HealthMeter : MonoBehaviour
     void Update()
     {
         healthBar.fillAmount = player.currentHp / 20f;
-        Debug.Log("OLLE" + player.currentHp);
+       
     }
 /*
     private void UpdateMeter(int currentHp)
