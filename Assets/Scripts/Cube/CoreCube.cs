@@ -1,11 +1,15 @@
 using System;
+using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CoreCube : Cube
 {
     public static event Action EnemyDied;
     public static event Action<int> PlayerTakeDamage;
     public override string prefabName => "";
+    [ShowIf("isControlledByPlayer")]
+    public UnityEvent PlayerDied;
 
     /// <inheritdoc />
     protected override void OnTriggerEnter2D(Collider2D collider)
@@ -59,7 +63,7 @@ public class CoreCube : Cube
         if (isControlledByPlayer)
         {
             PlayerTakeDamage?.Invoke(currentHp);
-            Debug.Log("lose game");
+            PlayerDied?.Invoke();
         }
         else
         {
