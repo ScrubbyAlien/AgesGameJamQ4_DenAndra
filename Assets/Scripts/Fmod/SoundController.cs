@@ -64,6 +64,7 @@ public class SoundController : MonoBehaviour
         "event:/Sound/General/BlockDestroyed",
         "event:/Sound/General/Death",
         "event:/Sound/General/Spin",
+        "event:/Sound/General/Fart",
     };
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
