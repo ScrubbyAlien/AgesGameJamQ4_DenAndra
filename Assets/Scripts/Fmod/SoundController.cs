@@ -1,7 +1,6 @@
 using System;
 using FMOD.Studio;
 using FMODUnity;
-using UnityEditor.Rendering;
 using UnityEngine;
 //Funktionerna av intresse här är PlayOneshot, vilket har en parameter "path" som bestämmer
 // vilket fmod-event som kommer spelas. Dessa paths går att läsa från string-listorna
