@@ -4,6 +4,7 @@ using UnityEngine;
 public class CoreCube : Cube
 {
     public static event Action EnemyDied;
+    public static event Action<int> PlayerTakeDamage;
     public override string prefabName => "";
 
     /// <inheritdoc />
@@ -36,8 +37,19 @@ public class CoreCube : Cube
     }
 
     /// <inheritdoc />
+    public override void TakeDmg(int dmg, DmgType type)
+    {
+        base.TakeDmg(dmg, type);
+        if (isControlledByPlayer)
+        {
+            PlayerTakeDamage?.Invoke(currentHp);
+        }
+    }
+
+    /// <inheritdoc />
     public override void OnDie()
     {
+        PlayerTakeDamage?.Invoke(currentHp);
         Disconnect();
         Destroy(gameObject);
 

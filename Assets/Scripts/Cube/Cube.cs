@@ -65,7 +65,7 @@ public abstract class Cube : MonoBehaviour
             {
                 otherCube.TakeDmg(collsionDmg, DmgType.Player);
             }
-            else
+            else if (!isControlledByPlayer && otherCube.isControlledByPlayer)
             {
                 otherCube.TakeDmg(collsionDmg, DmgType.Enemy);
             }
@@ -168,7 +168,7 @@ public abstract class Cube : MonoBehaviour
         }
     }
 
-    private Vector2Int CompensateRotation(float rotation, Vector2Int direction)
+    protected Vector2Int CompensateRotation(float rotation, Vector2Int direction)
     {
         rotation = Mathf.Round(rotation / 90) * 90; // round to nearest 90 deg
         rotation %= 360; // ensure rotation is positive

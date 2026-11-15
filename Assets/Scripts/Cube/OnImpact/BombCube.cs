@@ -46,4 +46,17 @@ public class BombCube : Cube
             OnDie();
         }
     }
+
+    public override void OnDie()
+    {
+        if (state == BlockState.Controlled)
+        {
+            Disconnect();
+             Destroy(gameObject);
+        }
+        else
+        {
+            return;
+        }
+    }
 }
