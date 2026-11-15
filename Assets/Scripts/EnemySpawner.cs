@@ -14,6 +14,7 @@ public class EnemySpawner : MonoBehaviour
     private Vector2[] spawnPositions;
     [SerializeField]
     public int enemiesInWave;
+    private int enemyCoresKilled;
     [SerializeField]
     private float timeBetweenSpawns;
     private WaitForSeconds spawnWaitTime;
@@ -30,8 +31,7 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         spawnWaitTime = new WaitForSeconds(timeBetweenSpawns);
-        // todo: count enemycores instead of controllers
-        whileEnemiesRemain = new WaitWhile(() => EnemyControllersInScene().Length > 0);
+        whileEnemiesRemain = new WaitWhile(() => enemyCoresKilled < enemiesInWave);
         if (firstWave)
         {
             StartWave();
@@ -40,6 +40,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void StartWave()
     {
+        CoreCube.EnemyDied += IncrementCoreCount;
         StartCoroutine(RunWave());
     }
 
@@ -55,6 +56,7 @@ public class EnemySpawner : MonoBehaviour
         }
         yield return whileEnemiesRemain;
         Debug.Log("wave finished");
+        CoreCube.EnemyDied -= IncrementCoreCount;
         nextWave?.StartWave();
         waveFinished?.Invoke(nextWave);
     }
@@ -80,5 +82,10 @@ public class EnemySpawner : MonoBehaviour
     public EnemyController[] EnemyControllersInScene()
     {
         return GameObject.FindObjectsByType<EnemyController>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+    }
+
+    private void IncrementCoreCount()
+    {
+        enemyCoresKilled++;
     }
 }

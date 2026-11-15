@@ -141,8 +141,20 @@ public class CubeConstruction : MonoBehaviour
 
         for (int i = 1; i < clusters.Count; i++)
         {
-            CreateNewConstructionFromCluster(clusters[i]);
+            // very buggy potentially, sometimes creates constructions that shouldn't exist
+            //CreateNewConstructionFromCluster(clusters[i]);
+            foreach (Cube cube in clusters[i])
+            {
+                GetIndexFromCube(cube, out Vector2Int index);
+                cubes.Remove(index);
+                SetInactive(cube);
+            }
         }
+    }
+
+    public bool DirectionIsFree(Vector2Int origin, Vector2Int direction)
+    {
+        return !cubes.ContainsKey(origin + direction);
     }
 
     private void SetInactive(Cube cube)
@@ -151,7 +163,7 @@ public class CubeConstruction : MonoBehaviour
         cube.controllingConstruction = null;
         cube.positionInConstruction = Vector2Int.zero;
         cube.isControlledByPlayer = false;
-        cube.state = BlockState.Inactive;
+        cube.EnterInactiveState();
     }
 
     private void Disintigrate()
