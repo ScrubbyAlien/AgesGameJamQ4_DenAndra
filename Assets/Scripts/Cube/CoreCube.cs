@@ -49,6 +49,7 @@ public class CoreCube : Cube
     /// <inheritdoc />
     public override void OnDie()
     {
+        PlayerTakeDamage?.Invoke(currentHp);
         Disconnect();
         Destroy(gameObject);
 
