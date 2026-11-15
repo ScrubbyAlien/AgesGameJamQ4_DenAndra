@@ -10,6 +10,11 @@ public class Mine : MonoBehaviour
     private bool blownUp = false;
     [SerializeField] private GameObject explosion;
     private Vector3 direction;
+
+    private void Start()
+    {
+        Destroy(gameObject, 10f);
+    }
     public void PlanForMine(Transform targetLocation)
     {
         direction = (targetLocation.position - transform.position).normalized;
