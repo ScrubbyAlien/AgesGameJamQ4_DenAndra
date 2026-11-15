@@ -34,6 +34,7 @@ public abstract class Cube : MonoBehaviour
         circleCollider = gameObject.AddComponent<CircleCollider2D>();
         circleCollider.radius = pickUpRadius;
         circleCollider.isTrigger = true;
+        circleCollider.excludeLayers = LayerMask.GetMask("Projectile");
     }
 
     private void Start()
@@ -111,7 +112,7 @@ public abstract class Cube : MonoBehaviour
         if (isControlledByPlayer && type == DmgType.Player) return;
 
         //no dmg if non player is vs enemy
-        // if (!isControlledByPlayer && type == DmgType.Enemy) return;
+        if (!isControlledByPlayer && type == DmgType.Enemy) return;
 
         currentHp = currentHp - dmg;
 
