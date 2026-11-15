@@ -858,11 +858,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!4 &571168098 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5712936620819261666, guid: af356586e224a2944b99895ca2e231f1, type: 3}
-  m_PrefabInstance: {fileID: 1806750823}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &596670719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,11 +1104,11 @@ Transform:
   m_GameObject: {fileID: 1471957302}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.1013527, y: -1.0492529, z: 0.034459487}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 571168098}
+  m_Father: {fileID: 1614885742}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1471957304
 MonoBehaviour:
@@ -1130,7 +1125,7 @@ MonoBehaviour:
   indexRef: 2
   EventParam: []
   initOnStart: 1
-  playOnStart: 0
+  playOnStart: 1
   releaseOnStop: 1
   debugEnabled: 0
   play: 0
@@ -1165,11 +1160,11 @@ Transform:
   m_GameObject: {fileID: 1604190925}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.1013527, y: -1.0492529, z: 0.034459487}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 571168098}
+  m_Father: {fileID: 1614885742}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1604190927
 MonoBehaviour:
@@ -1223,7 +1218,10 @@ Transform:
   m_LocalPosition: {x: -6.1013527, y: -1.0492529, z: 0.034459487}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1719711917}
+  - {fileID: 1604190926}
+  - {fileID: 1471957303}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1694170190
@@ -1270,6 +1268,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf34067abc272e04e9aef48c2dea6792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayTrack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1719711918}
+        m_TargetAssemblyTypeName: MusicController, Assembly-CSharp
+        m_MethodName: PlayEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  PauseTrack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1471957304}
+        m_TargetAssemblyTypeName: MusicController, Assembly-CSharp
+        m_MethodName: PauseEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1719711916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,11 +1324,11 @@ Transform:
   m_GameObject: {fileID: 1719711916}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.1013527, y: -1.0492529, z: 0.034459487}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 571168098}
+  m_Father: {fileID: 1614885742}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1719711918
 MonoBehaviour:
@@ -1317,7 +1345,7 @@ MonoBehaviour:
   indexRef: 0
   EventParam: []
   initOnStart: 1
-  playOnStart: 1
+  playOnStart: 0
   releaseOnStop: 1
   debugEnabled: 0
   play: 0
@@ -1467,16 +1495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 5712936620819261666, guid: af356586e224a2944b99895ca2e231f1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1719711917}
-    - targetCorrespondingSourceObject: {fileID: 5712936620819261666, guid: af356586e224a2944b99895ca2e231f1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1604190926}
-    - targetCorrespondingSourceObject: {fileID: 5712936620819261666, guid: af356586e224a2944b99895ca2e231f1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1471957303}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af356586e224a2944b99895ca2e231f1, type: 3}
 --- !u!1 &1854555425
