@@ -551,7 +551,7 @@ MonoBehaviour:
   - {x: 55.34, y: -20.2}
   - {x: -1.3, y: -35.2}
   - {x: 108.3, y: -35.2}
-  enemiesInWave: 8
+  enemiesInWave: 5
   timeBetweenSpawns: 4
   firstWave: 0
   nextWave: {fileID: 2031124788}
@@ -182816,7 +182816,7 @@ MonoBehaviour:
   - {x: 55.34, y: -20.2}
   - {x: -1.3, y: -35.2}
   - {x: 108.3, y: -35.2}
-  enemiesInWave: 8
+  enemiesInWave: 5
   timeBetweenSpawns: 4
   firstWave: 0
   nextWave: {fileID: 0}
@@ -188921,7 +188921,7 @@ MonoBehaviour:
   - {x: 55.34, y: -20.2}
   - {x: -1.3, y: -35.2}
   - {x: 108.3, y: -35.2}
-  enemiesInWave: 8
+  enemiesInWave: 5
   timeBetweenSpawns: 4
   firstWave: 0
   nextWave: {fileID: 1495491104}
