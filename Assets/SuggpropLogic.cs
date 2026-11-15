@@ -9,8 +9,11 @@ public class SuggpropLogic : MonoBehaviour
     public bool isBack = false;
     public bool firedSuggprop = false;
     private Cube stolenCube;
-    
 
+    private void Start()
+    {
+        Destroy(gameObject, 5f);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.TryGetComponent(out Cube otherCube)) return;

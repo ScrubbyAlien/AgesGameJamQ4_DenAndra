@@ -72,7 +72,7 @@ public class SuggpropCube : Cube
             {
                 Debug.Log("adding froce to suggprop fire");
 
-                Destroy(suggpropLogic.gameObject, 20f);
+                
             }
         }
     }
